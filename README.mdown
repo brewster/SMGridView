@@ -3,12 +3,20 @@ SMGridView for iOS
 
 This open-source class allows you to have a custom grid that will use methods similar to UITableView (and UITableViewDataSource and UITableViewDelegate) and that supports a lot of extra functionality.
 
-* Horizontal or hertical scroll.
+* Horizontal or vertical scroll.
 * Support for any view, not just a fixed view like UITableViewCell.
 * Support for sections.
 * Support for inserting or deleting items with an animation.
 * Support to sort items using drag & drop.
 * Veeeery fast, supporting reusing views.
-* It is a scrollView, so you can access all its methods.
+* It is a UIScrollView, so you can access all its methods and set its UIScrollViewDelegate.
 * Supports pagination.
 * You can even use this class even if you don't plan to scroll, just to layout items in a grid or line (single row grid).
+
+# Installation
+
+To install simply clone the project and drag SMGridView.h and SMGridView.m into your project. This files are inside SMGridView/source. After that, simply import SMGridView.h and you are ready to use it. 
+
+# Example
+
+This project contains an example of how to use it. To run it, simply open the project file in XCode and run it. You can press the Edit button to change some of the settings. The source code has comments but it should be easy to follow. I didn't use nib files as I don't like them.
