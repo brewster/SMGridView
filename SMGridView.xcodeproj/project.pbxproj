@@ -34,6 +34,7 @@
 		898510A4161B35B600CE0A32 /* SMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851094161B35B600CE0A32 /* SMGridView.m */; };
 		898510A6161B364E00CE0A32 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898510A5161B364E00CE0A32 /* MessageUI.framework */; };
 		898510A8161B365C00CE0A32 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898510A7161B365C00CE0A32 /* QuartzCore.framework */; };
+		898510B8161B399F00CE0A32 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 898510B7161B399F00CE0A32 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		89851094161B35B600CE0A32 /* SMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMGridView.m; sourceTree = "<group>"; };
 		898510A5161B364E00CE0A32 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		898510A7161B365C00CE0A32 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		898510B7161B399F00CE0A32 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				8985103B161B349600CE0A32 /* AppDelegate.m */,
 				89851090161B35B600CE0A32 /* SMGridViewTestViewController.h */,
 				89851091161B35B600CE0A32 /* SMGridViewTestViewController.m */,
+				898510B6161B395A00CE0A32 /* Resources */,
 				89851032161B349600CE0A32 /* Supporting Files */,
 			);
 			path = SMGridView;
@@ -469,6 +472,14 @@
 			path = source;
 			sourceTree = "<group>";
 		};
+		898510B6161B395A00CE0A32 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				898510B7161B399F00CE0A32 /* Settings.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -524,6 +535,7 @@
 				8985103E161B349600CE0A32 /* Default.png in Resources */,
 				89851040161B349600CE0A32 /* Default@2x.png in Resources */,
 				89851042161B349600CE0A32 /* Default-568h@2x.png in Resources */,
+				898510B8161B399F00CE0A32 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,10 +633,12 @@
 		8985104F161B349600CE0A32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Randy Meech (9X529PMSNT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMGridView/SMGridView-Prefix.pch";
 				INFOPLIST_FILE = "SMGridView/SMGridView-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A4ABCEC2-D533-4611-9348-0C56B9E47A7B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
