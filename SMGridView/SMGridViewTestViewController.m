@@ -214,6 +214,10 @@
     if (!self.headersEnabled) {
         return nil;
     }
+    static NSArray *colors;
+    if (!colors) {
+        colors = [[NSArray alloc] initWithObjects:[UIColor grayColor], [UIColor blackColor], nil];
+    }
     UIView *header = [[[UIView alloc] init] autorelease];
     
     CGSize headerSize = [self smGridView:gridView sizeForHeaderInSection:section];
@@ -221,10 +225,11 @@
     header.backgroundColor = [UIColor grayColor];
     
     UILabel *label = [[[UILabel alloc] init] autorelease];
-    label.backgroundColor = [UIColor clearColor];
+    label.backgroundColor = [colors objectAtIndex:section%colors.count];
     label.textAlignment = NSTextAlignmentCenter;
     label.frame = CGRectMake(0, (headerSize.height - kHeaderSize)/2, header.frame.size.width, kHeaderSize);
     label.text = [NSString stringWithFormat:@"%d", section];
+    label.textColor = [UIColor whiteColor];
     [header addSubview:label];
     return header;
 }

@@ -359,7 +359,11 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (BOOL)isCurrentHeaderItemSticky:(SMGridViewItem *)item {
-    return self.stickyHeaders && item.header && !CGRectIsEmpty(item.rect) && item.indexPath.section == _currentSection && !CGSizeEqualToSize(CGSizeZero, item.rect.size);
+    BOOL ret = self.stickyHeaders && item.header && !CGRectIsEmpty(item.rect) && item.indexPath.section == _currentSection && !CGSizeEqualToSize(CGSizeZero, item.rect.size);
+    if (ret) {
+        NSLog(@"");
+    }
+    return ret;
 }
 
 - (CGRect)rectForIndexPath:(NSIndexPath *)indexPath {
@@ -368,19 +372,22 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (void)updateRectForItem:(SMGridViewItem *)item {
+    if (item.header) {
+        NSLog(@"");
+    }
     if ([self isCurrentHeaderItemSticky:item]) {
         SMGridViewItem *headerNextItem = [self headerItemInSection:_currentSection+1];
         if ([self headerStickyNeedsAdjustment:item]) {            
             CGRect frame = item.rect;
             if (self.vertical) {
                 frame.origin.y = self.contentOffset.y;
-                if (headerNextItem.view && CGRectIntersectsRect(headerNextItem.view.frame, frame)) {
-                    frame.origin.y -= CGRectGetMaxY(frame) - CGRectGetMinY(headerNextItem.view.frame);
+                if (CGRectIntersectsRect(headerNextItem.rect, frame)) {
+                    frame.origin.y -= CGRectGetMaxY(frame) - CGRectGetMinY(headerNextItem.rect);
                 }
             } else {
                 frame.origin.x = self.contentOffset.x;
-                if (headerNextItem.view && CGRectIntersectsRect(headerNextItem.view.frame, frame)) {
-                    frame.origin.x -= CGRectGetMaxX(frame) - CGRectGetMinX(headerNextItem.view.frame);
+                if (CGRectIntersectsRect(headerNextItem.rect, frame)) {
+                    frame.origin.x -= CGRectGetMaxX(frame) - CGRectGetMinX(headerNextItem.rect);
                 }
             }
             item.view.frame = frame;
@@ -1661,9 +1668,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (void)changePage:(NSTimer *)timer {
-    if (![NSThread isMainThread]) {
-        NSLog(@"");
-    }
     int newPage = [[timer.userInfo objectForKey:@"newPage"] intValue];
     BOOL next = newPage > _currentPage;
     [self setCurrentPage:newPage animated:YES];
