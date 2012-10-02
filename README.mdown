@@ -17,6 +17,12 @@ This open-source class allows you to have a custom grid that will use methods si
 
 To install simply clone the project and drag SMGridView.h and SMGridView.m into your project. This files are inside SMGridView/source. After that, simply import SMGridView.h and you are ready to use it. 
 
+# Typical use
+
+First import the header
+    #import "SMGridView.h"
+
+
 # Example
 
 This project contains an example of how to use it. To run it, simply open the project file in XCode and run it. You can press the Edit button to change some of the settings. The source code has comments but it should be easy to follow. I didn't use nib files as I don't like them.
