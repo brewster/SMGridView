@@ -1819,7 +1819,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 
 - (void)adjustDraggingViewToOffset {
     if (_draggingView) {
-        CGPoint center = _draggingView.center;
+        CGPoint center;
         if (self.vertical) {
             center = CGPointMake(_draggingView.center.x, _draggingView.center.y + self.contentOffset.y - _lastOffset.y);
         } else {
