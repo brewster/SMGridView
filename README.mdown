@@ -20,6 +20,7 @@ To install simply clone the project and drag SMGridView.h and SMGridView.m into 
 # Typical use
 
 First import the header
+
     #import "SMGridView.h"
 
 
