@@ -174,7 +174,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     _currentOffsetPage = -1;
     _draggingOrigItemsIndex = -1;
     _draggingSection = -1;
-    _sortWaitBeforeAnimate = .1;
+    _sortWaitBeforeAnimate = .05;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -666,6 +666,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     if (page != _currentPage) {
         _currentPage = page;
     }
+    [self setContentOffset:[self contentOffsetForPage:_currentPage] animated:animated];
 }
 
 - (void)setCurrentPage:(NSInteger)page {
@@ -1659,14 +1660,14 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     }
 }
 
-- (void)changeNextPage {
-    [self setCurrentPage:_currentPage+1 animated:YES];
-    [self changePageTimer:YES interval:1];
-}
-
-- (void)changePrevPage {
-    [self setCurrentPage:_currentPage-1 animated:YES];
-    [self changePageTimer:NO interval:1];
+- (void)changePage:(NSTimer *)timer {
+    if (![NSThread isMainThread]) {
+        NSLog(@"");
+    }
+    int newPage = [[timer.userInfo objectForKey:@"newPage"] intValue];
+    BOOL next = newPage > _currentPage;
+    [self setCurrentPage:newPage animated:YES];
+    [self changePageTimer:next interval:1];
 }
 
 - (void)changePageTimer:(BOOL)next interval:(NSTimeInterval)interval {
@@ -1674,9 +1675,12 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     if ([self pageOutOfBounds:newPage]) {
         return;
     }
-    [self.dragPageAnimTimer invalidate];
-    self.dragPageAnimTimer = [NSTimer timerWithTimeInterval:interval target:self selector:next?@selector(changeNextPage):@selector(changePrevPage) userInfo:nil repeats:NO];
-    [[NSRunLoop mainRunLoop] addTimer:self.dragPageAnimTimer forMode:NSRunLoopCommonModes];
+    NSNumber *timerPage = [self.dragPageAnimTimer.userInfo objectForKey:@"newPage"];
+    if (!timerPage || timerPage.intValue != newPage) {
+        [self.dragPageAnimTimer invalidate];
+        self.dragPageAnimTimer = [NSTimer timerWithTimeInterval:interval target:self selector:@selector(changePage:) userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:newPage] forKey:@"newPage"] repeats:NO];
+        [[NSRunLoop mainRunLoop] addTimer:self.dragPageAnimTimer forMode:NSRunLoopCommonModes];
+    }
 }
 
 - (void)handleScrollAnimation {
