@@ -815,10 +815,10 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     CGSize size = self.frame.size;
     [super setFrame:frame];
     if (!CGSizeEqualToSize(size, self.frame.size)) {
-        [self updateContentSize];
         if (self.frame.size.height > size.height) {
             [self loadViewsForCurrentPos]; 
         }
+        [self updateContentSize];
     }
 }
 
