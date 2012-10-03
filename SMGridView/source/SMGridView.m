@@ -1679,7 +1679,10 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     if ([self pageOutOfBounds:newPage]) {
         return;
     }
-    NSNumber *timerPage = [self.dragPageAnimTimer.userInfo objectForKey:@"newPage"];
+    NSNumber *timerPage = nil;
+    if (self.dragPageAnimTimer.isValid) {
+        [self.dragPageAnimTimer.userInfo objectForKey:@"newPage"];
+    }
     if (!timerPage || timerPage.intValue != newPage) {
         [self.dragPageAnimTimer invalidate];
         self.dragPageAnimTimer = [NSTimer timerWithTimeInterval:interval target:self selector:@selector(changePage:) userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:newPage] forKey:@"newPage"] repeats:NO];

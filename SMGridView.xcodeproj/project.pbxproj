@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8916E539161CEABB007FB02C /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 8916E538161CEABB007FB02C /* UIColor+Random.m */; };
 		8985102C161B349600CE0A32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8985102B161B349600CE0A32 /* UIKit.framework */; };
 		8985102E161B349600CE0A32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8985102D161B349600CE0A32 /* Foundation.framework */; };
 		89851030161B349600CE0A32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8985102F161B349600CE0A32 /* CoreGraphics.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8916E537161CEABB007FB02C /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
+		8916E538161CEABB007FB02C /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
 		89851027161B349600CE0A32 /* SMGridView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMGridView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8985102B161B349600CE0A32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8985102D161B349600CE0A32 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -143,6 +146,8 @@
 				8985103B161B349600CE0A32 /* AppDelegate.m */,
 				89851090161B35B600CE0A32 /* SMGridViewTestViewController.h */,
 				89851091161B35B600CE0A32 /* SMGridViewTestViewController.m */,
+				8916E537161CEABB007FB02C /* UIColor+Random.h */,
+				8916E538161CEABB007FB02C /* UIColor+Random.m */,
 				898510B6161B395A00CE0A32 /* Resources */,
 				89851032161B349600CE0A32 /* Supporting Files */,
 			);
@@ -564,6 +569,7 @@
 				898510A2161B35B600CE0A32 /* IASKTextField.m in Sources */,
 				898510A3161B35B600CE0A32 /* SMGridViewTestViewController.m in Sources */,
 				898510A4161B35B600CE0A32 /* SMGridView.m in Sources */,
+				8916E539161CEABB007FB02C /* UIColor+Random.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +679,7 @@
 				89851050161B349600CE0A32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

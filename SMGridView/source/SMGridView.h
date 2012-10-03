@@ -389,7 +389,7 @@
 - (NSArray *)currentViews:(BOOL)includeHeaders;
 
 /*!
- @brief Returns headerView for section if the view is being shown
+ @brief Returns headerView for section if the view is being shown. Headers are not supported if `pagingEnabled`is activated
  @param section
     Section number
  */

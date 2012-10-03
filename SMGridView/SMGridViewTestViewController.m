@@ -9,6 +9,7 @@
 #import "SMGridViewTestViewController.h"
 #import "IASKAppSettingsViewController.h"
 #import "IASKSettingsReader.h"
+#import "UIColor+Random.h"
 
 #define kGridMargin 10
 #define kHeaderSize 50
@@ -30,6 +31,7 @@
 - (id)init {
     self = [super init];
     if (self) {
+        // This just sets the default values for our Settings
         [[NSUserDefaults standardUserDefaults] registerDefaults:
          [NSDictionary dictionaryWithObjectsAndKeys:
           [NSNumber numberWithInt:4], @"num_sections",
@@ -74,24 +76,35 @@
 }
 
 - (void)createGrid {
+    // Create the grid based on the current's vc view and a margin
     _gridView = [[SMGridView alloc] initWithFrame:CGRectMake(kGridMargin, kGridMargin, self.view.frame.size.width - 2*kGridMargin, self.view.frame.size.height - 2*kGridMargin)];
     _gridView.backgroundColor = [UIColor whiteColor];
+    // Make it resizable
     _gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    // We set ourselfs (vc) as both dataSource and delegate
     _gridView.gridDelegate = self;
     _gridView.dataSource = self;
     [self.view addSubview:_gridView];
 }
 
+
+/**
+ This method will reload the grid reading all the properties in the settings
+ */
 - (void)reloadGrid {
+    // Always disable sort
     _gridView.enableSort = NO;
     _sortSwitch.on = NO;
+    
     _gridView.vertical = [[NSUserDefaults standardUserDefaults] boolForKey:@"vertical"];
     _gridView.pagingEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"pagination_enabled"];
     _gridView.pagingInverseOrder = [[NSUserDefaults standardUserDefaults] boolForKey:@"pagination_reverse"];
     _gridView.sortWaitBeforeAnimate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"sort_time"]/1000;
     _gridView.stickyHeaders = [[NSUserDefaults standardUserDefaults] boolForKey:@"headers_sticky"];
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loader_enabled"]) {
-        UIActivityIndicatorView *av = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
+        
+        UIActivityIndicatorView *av = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+        av.color = [UIColor darkGrayColor];
         [av startAnimating];
         _gridView.loaderView = av;
     } else {
@@ -101,7 +114,12 @@
     [_gridView reloadData];
 }
 
+// Headers are not supported in paging mode right now
+- (BOOL)headersEnabled {
+    return !_gridView.pagingEnabled && [[NSUserDefaults standardUserDefaults] boolForKey:@"headers_enabled"];
+}
 
+// This section is to create the mock color boxes for our grid
 #pragma mark - Items
 
 - (float)varSize {
@@ -115,10 +133,8 @@
 
 // Create random items
 - (NSDictionary *)createItem:(NSString *)label {
-    NSArray *colors = [NSArray arrayWithObjects:[UIColor redColor], [UIColor greenColor], [UIColor yellowColor], [UIColor blueColor], nil];
-
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:[colors objectAtIndex:arc4random()%4] forKey:@"color"];
+    [dict setObject:[UIColor randomColor] forKey:@"color"];
     if (_gridView.pagingEnabled) {
         [dict setObject:[NSNumber numberWithInt:self.itemSize] forKey:@"height"];
         [dict setObject:[NSNumber numberWithInt:self.itemSize] forKey:@"width"];
@@ -162,10 +178,6 @@
 
 - (int)itemSize {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"item_size"];
-}
-
-- (BOOL)headersEnabled {
-    return !_gridView.pagingEnabled && [[NSUserDefaults standardUserDefaults] boolForKey:@"headers_enabled"];
 }
 
 #pragma mark - SMGridViewDataSource
@@ -259,9 +271,17 @@
 }
 
 - (void)smGridView:(SMGridView *)gridView startDraggingView:(UIView *)view atIndex:(int)to {
-    [UIView animateWithDuration:.3 animations:^{
-        view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.2, 1.2);
+    float scale = 1.2;
+    CGSize size = view.frame.size;
+    gridView.draggingPoint = CGPointMake(
+                                         gridView.draggingPoint.x + (size.width*scale - size.width)/2,
+                                         gridView.draggingPoint.y + (size.height*scale - size.height)/2
+                                         );
+    [UIView animateWithDuration:0.3 animations:^{
+        view.transform = CGAffineTransformMakeScale(scale, scale);
         view.alpha = 0.7;
+    } completion:^(BOOL finished) {
+        //
     }];
 }
 
@@ -330,8 +350,15 @@
         _appSettingsViewController.showDoneButton = NO;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingDidChange:) name:kIASKAppSettingChanged object:nil];
-        BOOL enabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"headers_enabled"];
-        _appSettingsViewController.hiddenKeys = enabled ? nil : [NSSet setWithObjects:@"headers_sticky", nil];
+        NSMutableSet *hiddenKeys = [NSMutableSet set];
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"headers_enabled"]) {
+            [hiddenKeys addObject:@"headers_sticky"];
+        }
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pagination_enabled"]) {
+            [hiddenKeys addObject:@"pagination_reverse"];
+        }
+        
+        _appSettingsViewController.hiddenKeys = hiddenKeys;
 	}
 	return _appSettingsViewController;
 }
@@ -341,10 +368,22 @@
 }
 
 - (void)settingDidChange:(NSNotification *)notification {
+    NSMutableSet *hiddenKeys = [NSMutableSet setWithSet:_appSettingsViewController.hiddenKeys];
     if ([notification.object isEqual:@"headers_enabled"]) {
-        BOOL enabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"headers_enabled"];
-        [_appSettingsViewController setHiddenKeys:enabled ? nil : [NSSet setWithObjects:@"headers_sticky", nil] animated:YES];
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"headers_enabled"]) {
+            [hiddenKeys addObject:@"headers_sticky"];
+        } else {
+            [hiddenKeys removeObject:@"headers_sticky"];
+        }
     }
+    if ([notification.object isEqual:@"pagination_enabled"]) {
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pagination_enabled"]) {
+            [hiddenKeys addObject:@"pagination_reverse"];
+        } else {
+            [hiddenKeys removeObject:@"pagination_reverse"];
+        }
+    }
+    [_appSettingsViewController setHiddenKeys:hiddenKeys animated:YES];
 }
 
 @end
