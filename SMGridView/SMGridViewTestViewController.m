@@ -334,9 +334,7 @@
 
 - (void)removeAction:(id)sender {
     int section = arc4random()%_sections.count;
-    section = 0;
     int index = arc4random()%([[_sections objectAtIndex:section] count]);
-    index = 0;
     [_gridView removeItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:section]];
 }
 

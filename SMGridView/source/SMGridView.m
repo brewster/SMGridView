@@ -1254,14 +1254,39 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 
 #pragma mark - Adding/Removing items
 
+- (void)scrollToRectHeaderAware:(CGRect)rect animated:(BOOL)animated {
+    UIView *header = [self headerViewForSection:[self currentSection]];
+    if (header) {
+        if (self.vertical) {
+            rect.origin = CGPointMake(rect.origin.x, rect.origin.y - header.frame.size.height);
+        } else {
+            rect.origin = CGPointMake(rect.origin.x - header.frame.size.width, rect.origin.y);
+        }
+    }
+    [self scrollRectToVisible:rect animated:animated];
+}
+
+- (CGRect)visibleRectHeaderAware {
+    CGRect visibleRect = visibleRect = CGRectMake(self.contentOffset.x, self.contentOffset.y, self.frame.size.width, self.frame.size.height);
+    UIView *header = [self headerViewForSection:[self currentSection]];
+    if (header) {
+        if (self.vertical) {
+            visibleRect.origin = CGPointMake(visibleRect.origin.x,
+                                             visibleRect.origin.y + header.frame.size.height);
+            visibleRect.size = CGSizeMake(visibleRect.size.width,
+                                          visibleRect.size.height - header.frame.size.height);
+        } else {
+            visibleRect.origin = CGPointMake(visibleRect.origin.x + header.frame.size.width,
+                                             visibleRect.origin.y);
+            visibleRect.size = CGSizeMake(visibleRect.size.width - header.frame.size.width,
+                                          visibleRect.size.height);
+        }
+    }
+    return visibleRect;
+}
 
 - (BOOL)rectIsVisible:(CGRect)rect {
-    CGRect visibleRect = CGRectZero;
-    if (self.vertical) {
-        visibleRect = CGRectMake(rect.origin.x, self.contentOffset.y, self.frame.size.width, self.frame.size.height);
-    }else {
-        visibleRect = CGRectMake(self.contentOffset.x, rect.origin.y, self.frame.size.width, self.frame.size.height);
-    }
+    CGRect visibleRect = [self visibleRectHeaderAware];
     return (CGRectContainsRect(visibleRect, rect));
 }
 
@@ -1420,7 +1445,8 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
             [self finishRemovingIndexPath:indexPath];
         }else {
             self.removingIndexPath = indexPath;
-            [self scrollRectToVisible:item.rect animated:YES];
+//            [self scrollRectToVisible:item.rect animated:YES];
+            [self scrollToRectHeaderAware:item.rect animated:YES];
         }
     }
 } 
