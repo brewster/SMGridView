@@ -71,7 +71,7 @@ All the method in SMGridViewDelegate are optional, but SMGridDataSource requires
 	label.text = [NSString stringWithFormat:@"%d", indexPath.row];
 	return label;
 }
-``
+```
 
 Now all we have to do is call `reloadData` method. Just in like a UITableView, this method will actually create the views. Let's do this in viewDidLoad:
 
