@@ -16,31 +16,110 @@ This open-source class allows you to have a custom grid that will use methods si
 
 To install simply clone the project and drag SMGridView.h and SMGridView.m into your project. These files are inside SMGridView/source. After that, simply import SMGridView.h and you are ready to use it. 
 
-# Typical use ##
+## Typical use ##
 
 First import the header. I'm going to import it in the .h file of my view controller. I do this, as I want my custom view controller to be the dataSource and delegate of the SMGridView.
 
 ```objective-c
-    #import "SMGridView.h"
-    @interface SMGridViewTestViewController : UIViewController <SMGridViewDataSource, SMGridViewDelegate>
+#import "SMGridView.h"
+@interface SMGridViewTestViewController : UIViewController <SMGridViewDataSource, SMGridViewDelegate>
+
+@property (nonatomic, retain) SMGridView *grid;
     
-    @end
+@end
 ```
 	
-Now lets create the SMGridView. If you like to use nib files, you could create it there and link it with an Outlet. I'm just going to create the SMGridView in viewDidLoad method.
+Now lets create the SMGridView. If you like to use nib files, you could create it there and link it with an IBOutlet. I'm just going to create the SMGridView in viewDidLoad method.
 
-	...
-	@implementation MyViewController
+```objective-c
+@implementation MyViewController
 	
-	@synthesize grid = _grid;
-	...
-	- (void)viewDidLoad {
-		[super viewDidLoad];
-		self.grid = [[[SMGridView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.frame.size.height)] autorelease];
+@synthesize grid = _grid;
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	self.grid = [[[SMGridView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.frame.size.height)] autorelease];
+	self.grid.dataSource = self;
+	self.grid.delegate = self;
+}
+
+- (void)dealloc {
+	[_grid release];
+	[super dealloc];
+}
+```
+
+All the method in SMGridViewDelegate are optional, but SMGridDataSource requires you to implement some methods:
+
+```objective-c
+// Only 100 items, I only have 1 section (default), so no need to read and adapt for section parameter
+- (NSInteger)smGridView:(SMGridView *)gridView numberOfItemsInSection:(NSInteger)section {
+	return 100;
+}
+
+// Returning views of 100x100 size
+- (CGSize)smGridView:(SMGridView *)gridView sizeForIndexPath:(NSIndexPath *)indexPath {
+	return CGSizeMake(100, 100);
+}
+
+- (UIView *)smGridView:(SMGridView *)gridView viewForIndexPath:(NSIndexPath *)indexPath {
+	// Check if we can reuse
+	UILabel *label = [gridView dequeReusableView];
+	if (!label) {
+		label = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease]
 	}
+	label.text = [NSString stringWithFormat:@"%d", indexPath.row];
+	return label;
+}
+``
 
+Now all we have to do is call `reloadData` method. Just in like a UITableView, this method will actually create the views. Let's do this in viewDidLoad:
 
-# Example
+```objective-c
+@implementation MyViewController
+	
+@synthesize grid = _grid;
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	self.grid = [[[SMGridView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.frame.size.height)] autorelease];
+	self.grid.dataSource = self;
+	self.grid.delegate = self;
+	
+	[self.grid reloadData];
+}
+
+- (void)dealloc {
+	[_grid release];
+	[super dealloc];
+}
+```
+
+## Beyond the basics ##
+
+### Orientation ###
+You can use the `vertical` property to decide wether you want vertical (YES) or horizontal (NO) orientation. The default is horizontal (NO). You need to call reloadData after changing this property.
+
+### Adding/Removing ###
+If you want to add or remove an item, all you have to do is adapt the dataSource (`numberOfItemsInSection` should return a different number) and call reloadData. 
+However, SMGridView supports animating adding or removing items. 
+
+To add a view using an animation you should call 
+```objective-c
+- (void)addItemAtIndexPath:(NSIndexPath *)indexPath;
+```
+once the dataSource is ready.
+
+Removing an item is a little bit more complicated (not much!). First, without adjusting the dataSource, you call
+```objective-c
+- (void)removeItemAtIndexPath:(NSIndexPath *)indexPath;
+```
+Once the grid scrolls to the position where the item needs to be removed, the dataSource will receive a call to 
+```objective-c
+- (void)smGridView:(SMGridView *)gridView performRemoveIndexPath:(NSIndexPath *)indexPath;
+```
+This is where you have to addapt your dataSource. And that is it
+ 
 
 This project contains an example of how to use it. To run it, simply open the project file in XCode and run it. You can press the Edit button to change some of the settings. The source code has comments but it should be easy to follow. I didn't use nib files as I don't like them.
 
