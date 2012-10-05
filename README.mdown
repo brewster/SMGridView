@@ -113,6 +113,9 @@ Now all we have to do is call `reloadData` method. Just in like a UITableView, t
 ### Orientation ###
 You can use the `vertical` property to decide wether you want vertical (YES) or horizontal (NO) orientation. The default is horizontal (NO). You need to call reloadData after changing this property.
 
+### Padding ###
+There is a property called `padding` that you can set to decide the space between the objects in the grid and the edges of the grid itself.
+
 ### Adding/Removing ###
 If you want to add or remove an item, all you have to do is adapt the dataSource (`numberOfItemsInSection` should return a different number) and call reloadData. 
 However, SMGridView supports animating adding or removing items. 
