@@ -1,9 +1,8 @@
-SMGridView for iOS
-====================
+# SMGridView for iOS #
 
-This open-source class allows you to have a custom grid that will use methods similar to UITableView (and UITableViewDataSource and UITableViewDelegate) and that supports a lot of extra functionality.
+This open-source class allows you to have a custom grid that will use methods similar to UITableView (and UITableViewDataSource and UITableViewDelegate) and that supports a lot of extra functionality like:
 
-* Change between [Horizontal or Vertical][] scroll.
+* Choose between horizontal or vertical scroll.
 * Support for any view, not just a fixed view like UITableViewCell.
 * Support for sections.
 * Support for inserting or deleting items with an animation.
@@ -11,23 +10,22 @@ This open-source class allows you to have a custom grid that will use methods si
 * Veeeery fast, supporting reusing views.
 * It is a UIScrollView, so you can access all its methods and set its UIScrollViewDelegate.
 * Supports pagination.
-* You can even use this class even if you don't plan to scroll, just to layout items in a grid or line (single row grid).
+* You can use this class even if you don't plan to scroll, just to layout items in a grid or line (single row grid).
 
-# Installation
+## Installation ##
 
-To install simply clone the project and drag SMGridView.h and SMGridView.m into your project. This files are inside SMGridView/source. After that, simply import SMGridView.h and you are ready to use it. 
+To install simply clone the project and drag SMGridView.h and SMGridView.m into your project. These files are inside SMGridView/source. After that, simply import SMGridView.h and you are ready to use it. 
 
-# Typical use
+# Typical use ##
 
 First import the header. I'm going to import it in the .h file of my view controller. I do this, as I want my custom view controller to be the dataSource and delegate of the SMGridView.
 
-	...
+```objective-c
     #import "SMGridView.h"
-	...
-	@interface MyViewController :UIViewController <SMGridViewDataSource, SMGridViewDelegate>
-	...
-	@property (nonatomic, strong) SMGridView *grid;
-	...
+    @interface SMGridViewTestViewController : UIViewController <SMGridViewDataSource, SMGridViewDelegate>
+    
+    @end
+```
 	
 Now lets create the SMGridView. If you like to use nib files, you could create it there and link it with an Outlet. I'm just going to create the SMGridView in viewDidLoad method.
 
