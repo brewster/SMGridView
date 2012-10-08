@@ -18,7 +18,6 @@ static CGFloat const kSMTVdefaultPagesToPreload = 1;
 static float const kSMTVanimDuration = 0.2;
 static float const kSMTdefaultDragMinDistance = 30;
 
-////////////////////////////////////////////////////////////////////////////////////////////
 enum {
     SMGridViewSortAnimSpeedNone,
     SMGridViewSortAnimSpeedSlow,
@@ -27,7 +26,7 @@ enum {
 };
 typedef NSUInteger SMGridViewSortAnimSpeed;
 
-////////////////////////////////////////////////////////////////////////////////////////////
+
 @interface SMGridViewItem : NSObject <NSCopying> {    
 }
 
@@ -44,7 +43,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 @end
 
 
-////////////////////////////////////////////////////////////////////////////////////////////
 @implementation SMGridViewItem
 
 @synthesize rect;
@@ -126,7 +124,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 @end
 
 
-////////////////////////////////////////////////////////////////////////////////////////////
 @implementation SMGridView
 
 @synthesize dataSource = _dataSource;

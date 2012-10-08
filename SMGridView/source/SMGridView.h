@@ -10,85 +10,109 @@
 
 @class SMGridView;
 
+/**
+ Implement this protocol to provide an SMGridView with data to create the views. 
+ */
 @protocol SMGridViewDataSource <NSObject>
 
-/*!
- @brief Return number of items in a section
+/**
+ @return Number of items in a section
+ @param gridView The calling SMGridView
+ @param section The asked section
  */
 - (NSInteger)smGridView:(SMGridView *)gridView numberOfItemsInSection:(NSInteger)section;
 
-/*!
- @brief Return the size of a view in a given indexPath
+/**
+ @return Size of a view in a given indexPath
+ @param gridView The calling SMGridView
+ @param indexPath The target indexPath
  */
 - (CGSize)smGridView:(SMGridView *)gridView sizeForIndexPath:(NSIndexPath *)indexPath;
 
-/*!
- @brief Return a view for a given indexPath
- @discussion You should use dequeReusableView or dequeReusableViewWithClass: inside this method for better performance
+/**
+ You should use dequeReusableView or dequeReusableViewWithClass: inside this method for better performance
+ @return Size of a view in a given indexPath
+ @param gridView The calling SMGridView
+ @param indexPath The target indexPath
  */
 - (UIView *)smGridView:(SMGridView *)gridView viewForIndexPath:(NSIndexPath *)indexPath;
 
 
 @optional
 
-/*!
- @brief Use this method if your sections contain different number of rows. Otherwise you can use numberOfRows property.
+/**
+ Use this method if your sections contain different number of rows. Otherwise you can use numberOfRows property
+ @return number of rows in a section
+ @param gridView The calling SMGridView
+ @param section The target section
  */
 - (NSInteger)smGridView:(SMGridView *)gridView numberOfRowsInSection:(NSInteger)section;
 
-/*!
- @param fromIndexPath
-    the original indexPath
- @param toIndexPath
-    the new indexPath
- @discussion This method will be called when the user sorts the grid. DataSource should update its data accordingly
+/**
+ This method will be called when the user sorts the grid. DataSource should update its data accordingly
+ @param fromIndexPath The original indexPath
+ @param toIndexPath The new indexPath
  */
 - (void)smGridView:(SMGridView *)gridView shouldMoveItemFrom:(NSIndexPath *)fromIndexPath to:(NSIndexPath *)indexPath;
 
-/*!
- @brief This method when a remove animation is finished. DataSource should remove the item at indexPath position in the implementation of this method
+/**
+ This method will be called when a remove animation is finished. `SMGridViewDataSource` should remove the item at indexPath position in the implementation of this method
+ @param gridView The calling SMGridView
+ @param section The indexPath to delete
  */
 - (void)smGridView:(SMGridView *)gridView performRemoveIndexPath:(NSIndexPath *)indexPath;
 
-/*!
- @brief Use this method to decide wether to show a loader or not.
+/**
+ Use this method to decide wether to show a loader or not. Typically you make your `SMGridViewDataSource` manage this method and returning `YES`or `NO` if it is loading more content.
+ @return Wether to show or not the loader
  */
 - (BOOL)smGridViewShowLoader:(SMGridView *)gridView;
 
-/*!
- @brief This is being called whenever a view is queued. Use this to stop animations, clean...
+/**
+ This is being called whenever a view is queued. Use this to stop animations, clean...
+ @param gridView The calling SMGridView
+ @param view The view that is about to be queued
  */
-- (void)smGridView:(SMGridView *)grid willQueueView:(UIView *)view;
+- (void)smGridView:(SMGridView *)gridView willQueueView:(UIView *)view;
 
-/*!
- @brief If your views are all the same size, you can return YES here to have a big performance boost.
+/**
+ Return yes in this method if all your views have the same size. This will have a big improvement in performance
+ @param gridView The calling SMGridView
  */
 - (BOOL)smGridViewSameSize:(SMGridView *)gridView;
 
-/*!
- @brief Returns the number of sections in the grid
+/**
+ Implement this method if your SMGridView has more than 1 section. No need to implement if it only has 1 section
+ 
+ @return The number of sections in the grid
  */
 - (NSInteger)numberOfSectionsInSMGridView:(SMGridView *)gridView;
 
-/*!
- @brief Returns the size of the header in the given section. Return CGSizeZero if no header.
+/**
+ Implement this method if you want to have header views for your section
+ 
+ @return The size of the header in the given section. Return CGSizeZero if no header
  */
 - (CGSize)smGridView:(SMGridView *)gridView sizeForHeaderInSection:(NSInteger)section;
 
-/*!
- @brief Returns the header view for a given section. Return nil if no header.
+/**
+ Implement this method if you want to have header views for your section
+ 
+ @return The header view for a given section. Return nil if no header.
  */
 - (UIView *)smGridView:(SMGridView *)gridView viewForHeaderInSection:(NSInteger)section;
 
-/*!
- @brief Return YES if an item at the given indexPath can be moved.
+/**
+ Implement this method in combination with property [SMGridView enableSort] to be able to move items
+ 
+ @return `YES` if an item at the given indexPath can be moved.
  */
 - (BOOL)smGridView:(SMGridView *)gridView canMoveItemAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 
-/*!
- @protocol SMGridViewDelegate
+/**
+ This is the Delegate
  */
 @protocol SMGridViewDelegate <UIScrollViewDelegate>
 @optional
