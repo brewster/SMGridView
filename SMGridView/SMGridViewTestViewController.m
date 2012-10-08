@@ -101,8 +101,9 @@
     _gridView.pagingInverseOrder = [[NSUserDefaults standardUserDefaults] boolForKey:@"pagination_reverse"];
     _gridView.sortWaitBeforeAnimate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"sort_time"]/1000;
     _gridView.stickyHeaders = [[NSUserDefaults standardUserDefaults] boolForKey:@"headers_sticky"];
+    
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loader_enabled"]) {
-        
+        // Create the activity indicator as a loder view
         UIActivityIndicatorView *av = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
         av.color = [UIColor darkGrayColor];
         [av startAnimating];
@@ -110,7 +111,10 @@
     } else {
         _gridView.loaderView = nil;
     }
+    // Update the items (dataSource)
     [self createItems:[[NSUserDefaults standardUserDefaults] integerForKey:@"num_items"]];
+    
+    // Call reloadData to make sure all the changes are applied
     [_gridView reloadData];
 }
 

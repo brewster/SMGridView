@@ -10,10 +10,6 @@
 
 @class SMGridView;
 
-/*!
- @protocol SMGridView
- @discussion Implement this class to provide the SMGridView with data
- */
 @protocol SMGridViewDataSource <NSObject>
 
 /*!
@@ -140,10 +136,19 @@
 @end
 
 
-/*!
- @class SMGridView
- @discussion This is the gridView
- @author Miguel Cohnen
+/**
+ This open-source class allows you to have a custom grid that will use methods similar to UITableView (and UITableViewDataSource and UITableViewDelegate) and that supports a lot of extra functionality like:
+ 
+ * Choose between horizontal or vertical scroll.
+ * Support for any view, not just a fixed view like UITableViewCell.
+ * Support for sections.
+ * Support for inserting or deleting items with an animation.
+ * Support to sort items using drag & drop.
+ * Veeeery fast, supporting reusing views.
+ * It is a UIScrollView, so you can access all its methods and set its UIScrollViewDelegate.
+ * Supports pagination.
+ * You can use this class even if you don't plan to scroll, just to layout items in a grid or line (single row grid).
+ * Ability to display a loader at the end of the grid
  */
 @interface SMGridView : UIScrollView<UIScrollViewDelegate> {
     NSMutableArray *_reusableViews;
