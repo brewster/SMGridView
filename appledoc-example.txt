@@ -1,0 +1,14 @@
+appledoc \
+--project-name "SMGridView" \
+--project-company "Brewster" \
+--company-id "com.brewster" \
+--output "~/help" \
+--logformat xcode \
+--keep-undocumented-objects \
+--keep-undocumented-members \
+--keep-intermediate-files \
+--no-repeat-first-par \
+--ignore "*.m" \
+--ignore "*.mdown" \
+--index-desc ".README.mdown" \
+SMGridView/source
