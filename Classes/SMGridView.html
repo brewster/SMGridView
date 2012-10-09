@@ -1,0 +1,2483 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>SMGridView Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">SMGridView </a></h1>
+				<a id="developerHome" href="../index.html">Brewster</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">SMGridView Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/busy">&nbsp;&nbsp;&nbsp;&nbsp;busy</option>
+	
+	<option value="//api/name/currentPage">&nbsp;&nbsp;&nbsp;&nbsp;currentPage</option>
+	
+	<option value="//api/name/currentSection">&nbsp;&nbsp;&nbsp;&nbsp;currentSection</option>
+	
+	<option value="//api/name/dataSource">&nbsp;&nbsp;&nbsp;&nbsp;dataSource</option>
+	
+	<option value="//api/name/deltaLoad">&nbsp;&nbsp;&nbsp;&nbsp;deltaLoad</option>
+	
+	<option value="//api/name/deltaLoaderView">&nbsp;&nbsp;&nbsp;&nbsp;deltaLoaderView</option>
+	
+	<option value="//api/name/dragMinDistance">&nbsp;&nbsp;&nbsp;&nbsp;dragMinDistance</option>
+	
+	<option value="//api/name/draggingPoint">&nbsp;&nbsp;&nbsp;&nbsp;draggingPoint</option>
+	
+	<option value="//api/name/emptyView">&nbsp;&nbsp;&nbsp;&nbsp;emptyView</option>
+	
+	<option value="//api/name/enableSort">&nbsp;&nbsp;&nbsp;&nbsp;enableSort</option>
+	
+	<option value="//api/name/gridDelegate">&nbsp;&nbsp;&nbsp;&nbsp;gridDelegate</option>
+	
+	<option value="//api/name/hasItems">&nbsp;&nbsp;&nbsp;&nbsp;hasItems</option>
+	
+	<option value="//api/name/loaderView">&nbsp;&nbsp;&nbsp;&nbsp;loaderView</option>
+	
+	<option value="//api/name/numberOfPages">&nbsp;&nbsp;&nbsp;&nbsp;numberOfPages</option>
+	
+	<option value="//api/name/numberOfRows">&nbsp;&nbsp;&nbsp;&nbsp;numberOfRows</option>
+	
+	<option value="//api/name/padding">&nbsp;&nbsp;&nbsp;&nbsp;padding</option>
+	
+	<option value="//api/name/pagesToPreload">&nbsp;&nbsp;&nbsp;&nbsp;pagesToPreload</option>
+	
+	<option value="//api/name/pagingInverseOrder">&nbsp;&nbsp;&nbsp;&nbsp;pagingInverseOrder</option>
+	
+	<option value="//api/name/sortWaitBeforeAnimate">&nbsp;&nbsp;&nbsp;&nbsp;sortWaitBeforeAnimate</option>
+	
+	<option value="//api/name/stickyHeaders">&nbsp;&nbsp;&nbsp;&nbsp;stickyHeaders</option>
+	
+	<option value="//api/name/vertical">&nbsp;&nbsp;&nbsp;&nbsp;vertical</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addItemAtIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- addItemAtIndexPath:</option>
+	
+	<option value="//api/name/addItemAtIndexPath:scroll:">&nbsp;&nbsp;&nbsp;&nbsp;- addItemAtIndexPath:scroll:</option>
+	
+	<option value="//api/name/clearReusableViews">&nbsp;&nbsp;&nbsp;&nbsp;- clearReusableViews</option>
+	
+	<option value="//api/name/contentOffsetForPage:">&nbsp;&nbsp;&nbsp;&nbsp;- contentOffsetForPage:</option>
+	
+	<option value="//api/name/currentViews">&nbsp;&nbsp;&nbsp;&nbsp;- currentViews</option>
+	
+	<option value="//api/name/currentViews:">&nbsp;&nbsp;&nbsp;&nbsp;- currentViews:</option>
+	
+	<option value="//api/name/dequeReusableView">&nbsp;&nbsp;&nbsp;&nbsp;- dequeReusableView</option>
+	
+	<option value="//api/name/dequeReusableViewOfClass:">&nbsp;&nbsp;&nbsp;&nbsp;- dequeReusableViewOfClass:</option>
+	
+	<option value="//api/name/headerViewForSection:">&nbsp;&nbsp;&nbsp;&nbsp;- headerViewForSection:</option>
+	
+	<option value="//api/name/indexPathForView:">&nbsp;&nbsp;&nbsp;&nbsp;- indexPathForView:</option>
+	
+	<option value="//api/name/reloadData">&nbsp;&nbsp;&nbsp;&nbsp;- reloadData</option>
+	
+	<option value="//api/name/reloadDataOnlyNew">&nbsp;&nbsp;&nbsp;&nbsp;- reloadDataOnlyNew</option>
+	
+	<option value="//api/name/reloadDataWithPage:">&nbsp;&nbsp;&nbsp;&nbsp;- reloadDataWithPage:</option>
+	
+	<option value="//api/name/reloadSection:">&nbsp;&nbsp;&nbsp;&nbsp;- reloadSection:</option>
+	
+	<option value="//api/name/reloadSectionOnlyNew:">&nbsp;&nbsp;&nbsp;&nbsp;- reloadSectionOnlyNew:</option>
+	
+	<option value="//api/name/removeItemAtIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- removeItemAtIndexPath:</option>
+	
+	<option value="//api/name/removeItemAtIndexPath:scroll:">&nbsp;&nbsp;&nbsp;&nbsp;- removeItemAtIndexPath:scroll:</option>
+	
+	<option value="//api/name/resetScroll:">&nbsp;&nbsp;&nbsp;&nbsp;- resetScroll:</option>
+	
+	<option value="//api/name/setCurrentPage:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setCurrentPage:animated:</option>
+	
+	<option value="//api/name/touchDown:withLocationInView:">&nbsp;&nbsp;&nbsp;&nbsp;- touchDown:withLocationInView:</option>
+	
+	<option value="//api/name/viewForIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- viewForIndexPath:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/busy">busy</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentPage">currentPage</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSection">currentSection</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dataSource">dataSource</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deltaLoad">deltaLoad</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deltaLoaderView">deltaLoaderView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dragMinDistance">dragMinDistance</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/draggingPoint">draggingPoint</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/emptyView">emptyView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/enableSort">enableSort</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/gridDelegate">gridDelegate</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasItems">hasItems</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loaderView">loaderView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberOfPages">numberOfPages</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberOfRows">numberOfRows</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/padding">padding</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pagesToPreload">pagesToPreload</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pagingInverseOrder">pagingInverseOrder</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sortWaitBeforeAnimate">sortWaitBeforeAnimate</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stickyHeaders">stickyHeaders</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/vertical">vertical</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addItemAtIndexPath:">addItemAtIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addItemAtIndexPath:scroll:">addItemAtIndexPath:scroll:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clearReusableViews">clearReusableViews</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/contentOffsetForPage:">contentOffsetForPage:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentViews">currentViews</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentViews:">currentViews:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dequeReusableView">dequeReusableView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dequeReusableViewOfClass:">dequeReusableViewOfClass:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/headerViewForSection:">headerViewForSection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/indexPathForView:">indexPathForView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/reloadData">reloadData</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/reloadDataOnlyNew">reloadDataOnlyNew</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/reloadDataWithPage:">reloadDataWithPage:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/reloadSection:">reloadSection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/reloadSectionOnlyNew:">reloadSectionOnlyNew:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeItemAtIndexPath:">removeItemAtIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeItemAtIndexPath:scroll:">removeItemAtIndexPath:scroll:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetScroll:">resetScroll:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCurrentPage:animated:">setCurrentPage:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/touchDown:withLocationInView:">touchDown:withLocationInView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewForIndexPath:">viewForIndexPath:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="SMGridView Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">SMGridView Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">UIScrollView</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">UIScrollViewDelegate</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">SMGridView.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This open-source class allows you to have a custom grid that will use methods similar to UITableView (and UITableViewDataSource and UITableViewDelegate) and that supports a lot of extra functionality like:</p>
+
+<ul>
+<li>Choose between horizontal or <a href="#//api/name/vertical">vertical</a> scroll.</li>
+<li>Support for any view, not just a fixed view like UITableViewCell.</li>
+<li>Support for sections.</li>
+<li>Support for inserting or deleting items with an animation.</li>
+<li>Support to sort items using drag &amp; drop.</li>
+<li>Veeeery fast, supporting reusing views.</li>
+<li>It is a UIScrollView, so you can access all its methods and set its UIScrollViewDelegate.</li>
+<li>Supports pagination.</li>
+<li>You can use this class even if you don&rsquo;t plan to scroll, just to layout items in a grid or line (single row grid).</li>
+<li>Ability to display a loader at the end of the grid</li>
+</ul>
+
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dataSource">&nbsp;&nbsp;dataSource</a></code>
+		<span class="tooltip"><p>The <a href="../Protocols/SMGridViewDataSource.html">SMGridViewDataSource</a></p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/gridDelegate">&nbsp;&nbsp;gridDelegate</a></code>
+		<span class="tooltip"><p>The <a href="../Protocols/SMGridViewDelegate.html">SMGridViewDelegate</a></p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/numberOfRows">&nbsp;&nbsp;numberOfRows</a></code>
+		<span class="tooltip"><p>You can use this property to set the numberOfRows if all your sections have the same number. Otherwise use <a href="../Protocols/SMGridViewDataSource.html#//api/name/smGridView:numberOfRowsInSection:">[SMGridViewDataSource smGridView:numberOfRowsInSection:]</a></p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/padding">&nbsp;&nbsp;padding</a></code>
+		<span class="tooltip"><p>This is the space between every view in the grid</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deltaLoad">&nbsp;&nbsp;deltaLoad</a></code>
+		<span class="tooltip"><p>In logical pixels, how much more of the size of the grid is being preloaded.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deltaLoaderView">&nbsp;&nbsp;deltaLoaderView</a></code>
+		<span class="tooltip"><p>In logical pixels, use this property to make possible to preload the <a href="#//api/name/loaderView">loaderView</a> before it appears in the screen</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pagesToPreload">&nbsp;&nbsp;pagesToPreload</a></code>
+		<span class="tooltip"><p>How many extra pages to you want to preload if paging is enabled</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/vertical">&nbsp;&nbsp;vertical</a></code>
+		<span class="tooltip"><p>Set this to <code>YES</code> to have vertical scrolling</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pagingInverseOrder">&nbsp;&nbsp;pagingInverseOrder</a></code>
+		<span class="tooltip"><p>Set this property to <code>YES</code> when paging is enabled to change the order of the items</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentPage">&nbsp;&nbsp;currentPage</a></code>
+		<span class="tooltip"><p>If pagingEnabled is <code>YES</code>, returns the current Page in the grid</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/loaderView">&nbsp;&nbsp;loaderView</a></code>
+		<span class="tooltip"><p>Use this property to have a custom loaderView at the end of the grid
+Use in combination with <a href="../Protocols/SMGridViewDataSource.html#//api/name/smGridViewShowLoader:">[SMGridViewDataSource smGridViewShowLoader:]</a></p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/emptyView">&nbsp;&nbsp;emptyView</a></code>
+		<span class="tooltip"><p>This view will be displayed when <a href="#//api/name/dataSource">dataSource</a> has no items</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/numberOfPages">&nbsp;&nbsp;numberOfPages</a></code>
+		<span class="tooltip"><p>If pagingEnabled is <code>YES</code>, return the total number of pages in the grid</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/enableSort">&nbsp;&nbsp;enableSort</a></code>
+		<span class="tooltip"><p>Use this property to have a custom loaderView at the end of the grid
+Use in combination with <a href="../Protocols/SMGridViewDataSource.html#//api/name/smGridView:shouldMoveItemFrom:to:">[SMGridViewDataSource smGridView:shouldMoveItemFrom:to:]</a></p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dragMinDistance">&nbsp;&nbsp;dragMinDistance</a></code>
+		<span class="tooltip"><p>In logical pixels, how far a dragged view needs to be from another view to be able to swap its position.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/draggingPoint">&nbsp;&nbsp;draggingPoint</a></code>
+		<span class="tooltip"><p>This can be used to change the draggingPoint when sorting is enabled
+This is useful if you change the size of the view you are sorting.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/busy">&nbsp;&nbsp;busy</a></code>
+		<span class="tooltip"><p>Returns wether or not the grid is sorting or animating (adding/removing)</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stickyHeaders">&nbsp;&nbsp;stickyHeaders</a></code>
+		<span class="tooltip"><p>Decides wether headers should be sticky or not</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSection">&nbsp;&nbsp;currentSection</a></code>
+		<span class="tooltip"><p>Returns the section being shown right now</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hasItems">&nbsp;&nbsp;hasItems</a></code>
+		<span class="tooltip"><p>Wether a grid has or not items</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sortWaitBeforeAnimate">&nbsp;&nbsp;sortWaitBeforeAnimate</a></code>
+		<span class="tooltip"><p>Determines time to wait after the user stops moving a view before the sort animation starts (To be deprecated)</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/reloadData">&ndash;&nbsp;reloadData</a></code>
+		<span class="tooltip"><p>Call this method once your <a href="#//api/name/dataSource">dataSource</a> is ready to create the views inside the grid</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/reloadSection:">&ndash;&nbsp;reloadSection:</a></code>
+		<span class="tooltip"><p>Like method <a href="#//api/name/reloadData">reloadData</a> but only for a specific section</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/reloadDataWithPage:">&ndash;&nbsp;reloadDataWithPage:</a></code>
+		<span class="tooltip"><p>Calls method <a href="#//api/name/reloadData">reloadData</a> and positions itself in the given page</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/reloadDataOnlyNew">&ndash;&nbsp;reloadDataOnlyNew</a></code>
+		<span class="tooltip"><p>Like method <a href="#//api/name/reloadSectionOnlyNew:">reloadSectionOnlyNew:</a> with section being the last section.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/reloadSectionOnlyNew:">&ndash;&nbsp;reloadSectionOnlyNew:</a></code>
+		<span class="tooltip"><p>Use this method when you know the <a href="#//api/name/dataSource">dataSource</a> only added new items (and didn&rsquo;t change the ones before) to the given section.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dequeReusableView">&ndash;&nbsp;dequeReusableView</a></code>
+		<span class="tooltip"><p>Call this method to get a reusable view</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dequeReusableViewOfClass:">&ndash;&nbsp;dequeReusableViewOfClass:</a></code>
+		<span class="tooltip"><p>Call this method to get a reusable view of a specific class</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/clearReusableViews">&ndash;&nbsp;clearReusableViews</a></code>
+		<span class="tooltip"><p>Call this method to remove the reusable views</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addItemAtIndexPath:">&ndash;&nbsp;addItemAtIndexPath:</a></code>
+		<span class="tooltip"><p>Like method <a href="#//api/name/addItemAtIndexPath:scroll:">addItemAtIndexPath:scroll:</a> with scroll to <code>YES</code></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addItemAtIndexPath:scroll:">&ndash;&nbsp;addItemAtIndexPath:scroll:</a></code>
+		<span class="tooltip"><p>You should call this method once the <a href="#//api/name/dataSource">dataSource</a> has already addded the item</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeItemAtIndexPath:">&ndash;&nbsp;removeItemAtIndexPath:</a></code>
+		<span class="tooltip"><p>Like method <a href="#//api/name/removeItemAtIndexPath:scroll:">removeItemAtIndexPath:scroll:</a> with scroll to <code>YES</code></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeItemAtIndexPath:scroll:">&ndash;&nbsp;removeItemAtIndexPath:scroll:</a></code>
+		<span class="tooltip"><p>You should call this method before the property <a href="#//api/name/dataSource">dataSource</a> has removed the item. Once the item is removed (after the animation), the <a href="#//api/name/dataSource">dataSource</a> will receive a call to smGridView:performRemoveIndexPath: to finally remove the item</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/indexPathForView:">&ndash;&nbsp;indexPathForView:</a></code>
+		<span class="tooltip"><p>The view whose indexPath you are interested</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewForIndexPath:">&ndash;&nbsp;viewForIndexPath:</a></code>
+		<span class="tooltip"><p>The target indexPath</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resetScroll:">&ndash;&nbsp;resetScroll:</a></code>
+		<span class="tooltip"><p>Sets the contentOffset to 0</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setCurrentPage:animated:">&ndash;&nbsp;setCurrentPage:animated:</a></code>
+		<span class="tooltip"><p>Change the current page if paging is enabled</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentViews">&ndash;&nbsp;currentViews</a></code>
+		<span class="tooltip"><p>Same as method <a href="#//api/name/currentViews:">currentViews:</a> with includeHeaders to <code>NO</code></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentViews:">&ndash;&nbsp;currentViews:</a></code>
+		<span class="tooltip"><p>All visible views</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/headerViewForSection:">&ndash;&nbsp;headerViewForSection:</a></code>
+		<span class="tooltip"><p>eturns headerView for section if the view is being shown. Headers are not supported if <code>pagingEnabled</code>is <code>YES</code></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/contentOffsetForPage:">&ndash;&nbsp;contentOffsetForPage:</a></code>
+		<span class="tooltip"><p>The contentOffset for a page if pagingEnabled is <code>YES</code></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/touchDown:withLocationInView:">&ndash;&nbsp;touchDown:withLocationInView:</a></code>
+		<span class="tooltip"><p>Use this method to simulate a touchDown event to start dragging</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/busy" title="busy"></a>
+	<h3 class="subsubtitle method-title">busy</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns wether or not the grid is sorting or animating (adding/removing)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL busy</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentPage" title="currentPage"></a>
+	<h3 class="subsubtitle method-title">currentPage</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If pagingEnabled is <code>YES</code>, returns the current Page in the grid</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSInteger currentPage</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSection" title="currentSection"></a>
+	<h3 class="subsubtitle method-title">currentSection</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the section being shown right now</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSInteger currentSection</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dataSource" title="dataSource"></a>
+	<h3 class="subsubtitle method-title">dataSource</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The <a href="../Protocols/SMGridViewDataSource.html">SMGridViewDataSource</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) id&lt;SMGridViewDataSource&gt; dataSource</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deltaLoad" title="deltaLoad"></a>
+	<h3 class="subsubtitle method-title">deltaLoad</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>In logical pixels, how much more of the size of the grid is being preloaded.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat deltaLoad</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deltaLoaderView" title="deltaLoaderView"></a>
+	<h3 class="subsubtitle method-title">deltaLoaderView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>In logical pixels, use this property to make possible to preload the <a href="#//api/name/loaderView">loaderView</a> before it appears in the screen</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat deltaLoaderView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dragMinDistance" title="dragMinDistance"></a>
+	<h3 class="subsubtitle method-title">dragMinDistance</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>In logical pixels, how far a dragged view needs to be from another view to be able to swap its position.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) float dragMinDistance</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/draggingPoint" title="draggingPoint"></a>
+	<h3 class="subsubtitle method-title">draggingPoint</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This can be used to change the draggingPoint when sorting is enabled
+This is useful if you change the size of the view you are sorting.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGPoint draggingPoint</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/emptyView" title="emptyView"></a>
+	<h3 class="subsubtitle method-title">emptyView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This view will be displayed when <a href="#//api/name/dataSource">dataSource</a> has no items</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) UIView *emptyView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/enableSort" title="enableSort"></a>
+	<h3 class="subsubtitle method-title">enableSort</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Use this property to have a custom loaderView at the end of the grid
+Use in combination with <a href="../Protocols/SMGridViewDataSource.html#//api/name/smGridView:shouldMoveItemFrom:to:">[SMGridViewDataSource smGridView:shouldMoveItemFrom:to:]</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL enableSort</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/gridDelegate" title="gridDelegate"></a>
+	<h3 class="subsubtitle method-title">gridDelegate</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The <a href="../Protocols/SMGridViewDelegate.html">SMGridViewDelegate</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) id&lt;SMGridViewDelegate&gt; gridDelegate</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hasItems" title="hasItems"></a>
+	<h3 class="subsubtitle method-title">hasItems</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Wether a grid has or not items</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL hasItems</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/loaderView" title="loaderView"></a>
+	<h3 class="subsubtitle method-title">loaderView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Use this property to have a custom loaderView at the end of the grid
+Use in combination with <a href="../Protocols/SMGridViewDataSource.html#//api/name/smGridViewShowLoader:">[SMGridViewDataSource smGridViewShowLoader:]</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) UIView *loaderView</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/numberOfPages" title="numberOfPages"></a>
+	<h3 class="subsubtitle method-title">numberOfPages</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If pagingEnabled is <code>YES</code>, return the total number of pages in the grid</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSInteger numberOfPages</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/numberOfRows" title="numberOfRows"></a>
+	<h3 class="subsubtitle method-title">numberOfRows</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>You can use this property to set the numberOfRows if all your sections have the same number. Otherwise use <a href="../Protocols/SMGridViewDataSource.html#//api/name/smGridView:numberOfRowsInSection:">[SMGridViewDataSource smGridView:numberOfRowsInSection:]</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSInteger numberOfRows</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/padding" title="padding"></a>
+	<h3 class="subsubtitle method-title">padding</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This is the space between every view in the grid</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat padding</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pagesToPreload" title="pagesToPreload"></a>
+	<h3 class="subsubtitle method-title">pagesToPreload</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>How many extra pages to you want to preload if paging is enabled</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSInteger pagesToPreload</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pagingInverseOrder" title="pagingInverseOrder"></a>
+	<h3 class="subsubtitle method-title">pagingInverseOrder</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set this property to <code>YES</code> when paging is enabled to change the order of the items</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL pagingInverseOrder</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sortWaitBeforeAnimate" title="sortWaitBeforeAnimate"></a>
+	<h3 class="subsubtitle method-title">sortWaitBeforeAnimate</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Determines time to wait after the user stops moving a view before the sort animation starts (To be deprecated)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSTimeInterval sortWaitBeforeAnimate</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stickyHeaders" title="stickyHeaders"></a>
+	<h3 class="subsubtitle method-title">stickyHeaders</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Decides wether headers should be sticky or not</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL stickyHeaders</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/vertical" title="vertical"></a>
+	<h3 class="subsubtitle method-title">vertical</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set this to <code>YES</code> to have vertical scrolling</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL vertical</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addItemAtIndexPath:" title="addItemAtIndexPath:"></a>
+	<h3 class="subsubtitle method-title">addItemAtIndexPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Like method <a href="#//api/name/addItemAtIndexPath:scroll:">addItemAtIndexPath:scroll:</a> with scroll to <code>YES</code></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addItemAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>IndexPath of item to add</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addItemAtIndexPath:scroll:" title="addItemAtIndexPath:scroll:"></a>
+	<h3 class="subsubtitle method-title">addItemAtIndexPath:scroll:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>You should call this method once the <a href="#//api/name/dataSource">dataSource</a> has already addded the item</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addItemAtIndexPath:(NSIndexPath *)<em>indexPath</em> scroll:(BOOL)<em>scroll</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>The indexPath where the new item is in the property <a href="#//api/name/dataSource">dataSource</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>scroll</em></dt>
+			<dd><p>indicates wether the grid should scroll to show the animation or not</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/clearReusableViews" title="clearReusableViews"></a>
+	<h3 class="subsubtitle method-title">clearReusableViews</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Call this method to remove the reusable views</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)clearReusableViews</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/contentOffsetForPage:" title="contentOffsetForPage:"></a>
+	<h3 class="subsubtitle method-title">contentOffsetForPage:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The contentOffset for a page if pagingEnabled is <code>YES</code></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CGPoint)contentOffsetForPage:(NSInteger)<em>page</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>page</em></dt>
+			<dd><p>Page number</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The contentOffset for a page if pagingEnabled is <code>YES</code></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentViews" title="currentViews"></a>
+	<h3 class="subsubtitle method-title">currentViews</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Same as method <a href="#//api/name/currentViews:">currentViews:</a> with includeHeaders to <code>NO</code></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)currentViews</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentViews:" title="currentViews:"></a>
+	<h3 class="subsubtitle method-title">currentViews:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>All visible views</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)currentViews:(BOOL)<em>includeHeaders</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>includeHeaders</em></dt>
+			<dd><p>Set to <code>YES</code> to also get header views back</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>All visible views</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dequeReusableView" title="dequeReusableView"></a>
+	<h3 class="subsubtitle method-title">dequeReusableView</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Call this method to get a reusable view</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIView *)dequeReusableView</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An already used view or nils</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dequeReusableViewOfClass:" title="dequeReusableViewOfClass:"></a>
+	<h3 class="subsubtitle method-title">dequeReusableViewOfClass:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Call this method to get a reusable view of a specific class</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIView *)dequeReusableViewOfClass:(Class)<em>clazz</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>clazz</em></dt>
+			<dd><p>The class you want the returning object to be</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A view of the provided class or nil if not available</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/headerViewForSection:" title="headerViewForSection:"></a>
+	<h3 class="subsubtitle method-title">headerViewForSection:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>eturns headerView for section if the view is being shown. Headers are not supported if <code>pagingEnabled</code>is <code>YES</code></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIView *)headerViewForSection:(NSInteger)<em>section</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>section</em></dt>
+			<dd><p>Section number</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>eturns headerView for section if the view is being shown. Headers are not supported if <code>pagingEnabled</code>is <code>YES</code></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/indexPathForView:" title="indexPathForView:"></a>
+	<h3 class="subsubtitle method-title">indexPathForView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The view whose indexPath you are interested</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSIndexPath *)indexPathForView:(UIView *)<em>view</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>view</em></dt>
+			<dd><p>The view whose indexPath you are interested</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The NSIndexPath associated with a view. nil if the view is not being shown</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/reloadData" title="reloadData"></a>
+	<h3 class="subsubtitle method-title">reloadData</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Call this method once your <a href="#//api/name/dataSource">dataSource</a> is ready to create the views inside the grid</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)reloadData</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/reloadDataOnlyNew" title="reloadDataOnlyNew"></a>
+	<h3 class="subsubtitle method-title">reloadDataOnlyNew</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Like method <a href="#//api/name/reloadSectionOnlyNew:">reloadSectionOnlyNew:</a> with section being the last section.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)reloadDataOnlyNew</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/reloadDataWithPage:" title="reloadDataWithPage:"></a>
+	<h3 class="subsubtitle method-title">reloadDataWithPage:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Calls method <a href="#//api/name/reloadData">reloadData</a> and positions itself in the given page</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)reloadDataWithPage:(NSInteger)<em>page</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>page</em></dt>
+			<dd><p>Number of page to reload</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/reloadSection:" title="reloadSection:"></a>
+	<h3 class="subsubtitle method-title">reloadSection:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Like method <a href="#//api/name/reloadData">reloadData</a> but only for a specific section</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)reloadSection:(NSInteger)<em>section</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>section</em></dt>
+			<dd><p>Index of section to reload</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/reloadSectionOnlyNew:" title="reloadSectionOnlyNew:"></a>
+	<h3 class="subsubtitle method-title">reloadSectionOnlyNew:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Use this method when you know the <a href="#//api/name/dataSource">dataSource</a> only added new items (and didn&rsquo;t change the ones before) to the given section.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)reloadSectionOnlyNew:(NSInteger)<em>section</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>section</em></dt>
+			<dd><p>The index of the section to reload</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeItemAtIndexPath:" title="removeItemAtIndexPath:"></a>
+	<h3 class="subsubtitle method-title">removeItemAtIndexPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Like method <a href="#//api/name/removeItemAtIndexPath:scroll:">removeItemAtIndexPath:scroll:</a> with scroll to <code>YES</code></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeItemAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>indexPath of item to remove</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeItemAtIndexPath:scroll:" title="removeItemAtIndexPath:scroll:"></a>
+	<h3 class="subsubtitle method-title">removeItemAtIndexPath:scroll:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>You should call this method before the property <a href="#//api/name/dataSource">dataSource</a> has removed the item. Once the item is removed (after the animation), the <a href="#//api/name/dataSource">dataSource</a> will receive a call to smGridView:performRemoveIndexPath: to finally remove the item</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeItemAtIndexPath:(NSIndexPath *)<em>indexPath</em> scroll:(BOOL)<em>scroll</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>The indexPath in the property <a href="#//api/name/dataSource">dataSource</a> you want to remove</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>scroll</em></dt>
+			<dd><p>indicates wether the grid should scroll to show the animation or not</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resetScroll:" title="resetScroll:"></a>
+	<h3 class="subsubtitle method-title">resetScroll:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the contentOffset to 0</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)resetScroll:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Wether or not to animate the scroll</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setCurrentPage:animated:" title="setCurrentPage:animated:"></a>
+	<h3 class="subsubtitle method-title">setCurrentPage:animated:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Change the current page if paging is enabled</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setCurrentPage:(NSInteger)<em>page</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>page</em></dt>
+			<dd><p>The new page number</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>animated</em></dt>
+			<dd><p>Wether or not to animate when moving to that page</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/touchDown:withLocationInView:" title="touchDown:withLocationInView:"></a>
+	<h3 class="subsubtitle method-title">touchDown:withLocationInView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Use this method to simulate a touchDown event to start dragging</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)touchDown:(UIControl *)<em>controlView</em> withLocationInView:(CGPoint)<em>point</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>controlView</em></dt>
+			<dd><p>The view touched</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>point</em></dt>
+			<dd><p>Location inside controlView</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewForIndexPath:" title="viewForIndexPath:"></a>
+	<h3 class="subsubtitle method-title">viewForIndexPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The target indexPath</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIView *)viewForIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>The target indexPath</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The view associated with an indexPath if it is being shown. Return nil if it is not being shown.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Brewster. All rights reserved. (Last updated: 2012-10-09)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

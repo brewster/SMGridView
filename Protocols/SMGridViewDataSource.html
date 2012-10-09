@@ -1,0 +1,1099 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>SMGridViewDataSource Protocol Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">SMGridView </a></h1>
+				<a id="developerHome" href="../index.html">Brewster</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">SMGridViewDataSource Protocol Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/numberOfSectionsInSMGridView:">&nbsp;&nbsp;&nbsp;&nbsp;- numberOfSectionsInSMGridView:</option>
+	
+	<option value="//api/name/smGridView:canMoveItemAtIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:canMoveItemAtIndexPath:</option>
+	
+	<option value="//api/name/smGridView:numberOfItemsInSection:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:numberOfItemsInSection:</option>
+	
+	<option value="//api/name/smGridView:numberOfRowsInSection:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:numberOfRowsInSection:</option>
+	
+	<option value="//api/name/smGridView:performRemoveIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:performRemoveIndexPath:</option>
+	
+	<option value="//api/name/smGridView:shouldMoveItemFrom:to:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:shouldMoveItemFrom:to:</option>
+	
+	<option value="//api/name/smGridView:sizeForHeaderInSection:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:sizeForHeaderInSection:</option>
+	
+	<option value="//api/name/smGridView:sizeForIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:sizeForIndexPath:</option>
+	
+	<option value="//api/name/smGridView:viewForHeaderInSection:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:viewForHeaderInSection:</option>
+	
+	<option value="//api/name/smGridView:viewForIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:viewForIndexPath:</option>
+	
+	<option value="//api/name/smGridView:willQueueView:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:willQueueView:</option>
+	
+	<option value="//api/name/smGridViewSameSize:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridViewSameSize:</option>
+	
+	<option value="//api/name/smGridViewShowLoader:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridViewShowLoader:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberOfSectionsInSMGridView:">numberOfSectionsInSMGridView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:canMoveItemAtIndexPath:">smGridView:canMoveItemAtIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:numberOfItemsInSection:">smGridView:numberOfItemsInSection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:numberOfRowsInSection:">smGridView:numberOfRowsInSection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:performRemoveIndexPath:">smGridView:performRemoveIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:shouldMoveItemFrom:to:">smGridView:shouldMoveItemFrom:to:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:sizeForHeaderInSection:">smGridView:sizeForHeaderInSection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:sizeForIndexPath:">smGridView:sizeForIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:viewForHeaderInSection:">smGridView:viewForHeaderInSection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:viewForIndexPath:">smGridView:viewForIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:willQueueView:">smGridView:willQueueView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridViewSameSize:">smGridViewSameSize:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridViewShowLoader:">smGridViewShowLoader:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="SMGridViewDataSource Protocol Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">SMGridViewDataSource Protocol Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">SMGridView.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Implement this protocol to provide an <a href="../Classes/SMGridView.html">SMGridView</a> with data to create the views.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:numberOfItemsInSection:">&ndash;&nbsp;smGridView:numberOfItemsInSection:</a></code>
+		<span class="tooltip"><p>Number of items in a section</p></span>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:sizeForIndexPath:">&ndash;&nbsp;smGridView:sizeForIndexPath:</a></code>
+		<span class="tooltip"><p>Size of a view in a given indexPath</p></span>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:viewForIndexPath:">&ndash;&nbsp;smGridView:viewForIndexPath:</a></code>
+		<span class="tooltip"><p>You should use dequeReusableView or dequeReusableViewWithClass: inside this method for better performance</p></span>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:numberOfRowsInSection:">&ndash;&nbsp;smGridView:numberOfRowsInSection:</a></code>
+		<span class="tooltip"><p>Use this method if your sections contain different number of rows. Otherwise you can use numberOfRows property</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:shouldMoveItemFrom:to:">&ndash;&nbsp;smGridView:shouldMoveItemFrom:to:</a></code>
+		<span class="tooltip"><p>This method will be called when the user sorts the grid. DataSource should update its data accordingly</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:performRemoveIndexPath:">&ndash;&nbsp;smGridView:performRemoveIndexPath:</a></code>
+		<span class="tooltip"><p>This method will be called when a remove animation is finished. <code>SMGridViewDataSource</code> should remove the item at indexPath position in the implementation of this method</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridViewShowLoader:">&ndash;&nbsp;smGridViewShowLoader:</a></code>
+		<span class="tooltip"><p>Use this method to decide wether to show a loader or not. Typically you make your <code>SMGridViewDataSource</code> manage this method and returning <code>YES</code>or <code>NO</code> if it is loading more content.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:willQueueView:">&ndash;&nbsp;smGridView:willQueueView:</a></code>
+		<span class="tooltip"><p>This is being called whenever a view is queued. Use this to stop animations, clean&hellip;</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridViewSameSize:">&ndash;&nbsp;smGridViewSameSize:</a></code>
+		<span class="tooltip"><p>Return yes in this method if all your views have the same size. This will have a big improvement in performance</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/numberOfSectionsInSMGridView:">&ndash;&nbsp;numberOfSectionsInSMGridView:</a></code>
+		<span class="tooltip"><p>Implement this method if your <a href="../Classes/SMGridView.html">SMGridView</a> has more than 1 section. No need to implement if it only has 1 section</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:sizeForHeaderInSection:">&ndash;&nbsp;smGridView:sizeForHeaderInSection:</a></code>
+		<span class="tooltip"><p>Implement this method if you want to have header views for your section</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:viewForHeaderInSection:">&ndash;&nbsp;smGridView:viewForHeaderInSection:</a></code>
+		<span class="tooltip"><p>Implement this method if you want to have header views for your section</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:canMoveItemAtIndexPath:">&ndash;&nbsp;smGridView:canMoveItemAtIndexPath:</a></code>
+		<span class="tooltip"><p>Implement this method in combination with property <a href="../Classes/SMGridView.html#//api/name/enableSort">[SMGridView enableSort]</a> to be able to move items</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/numberOfSectionsInSMGridView:" title="numberOfSectionsInSMGridView:"></a>
+	<h3 class="subsubtitle method-title">numberOfSectionsInSMGridView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Implement this method if your <a href="../Classes/SMGridView.html">SMGridView</a> has more than 1 section. No need to implement if it only has 1 section</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSInteger)numberOfSectionsInSMGridView:(SMGridView *)<em>gridView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The number of sections in the grid</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:canMoveItemAtIndexPath:" title="smGridView:canMoveItemAtIndexPath:"></a>
+	<h3 class="subsubtitle method-title">smGridView:canMoveItemAtIndexPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Implement this method in combination with property <a href="../Classes/SMGridView.html#//api/name/enableSort">[SMGridView enableSort]</a> to be able to move items</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)smGridView:(SMGridView *)<em>gridView</em> canMoveItemAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>The indexPath of the item that is about to be dragged</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p><code>YES</code> if an item at the given indexPath can be moved.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:numberOfItemsInSection:" title="smGridView:numberOfItemsInSection:"></a>
+	<h3 class="subsubtitle method-title">smGridView:numberOfItemsInSection:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Number of items in a section</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSInteger)smGridView:(SMGridView *)<em>gridView</em> numberOfItemsInSection:(NSInteger)<em>section</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>section</em></dt>
+			<dd><p>The asked section</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Number of items in a section</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:numberOfRowsInSection:" title="smGridView:numberOfRowsInSection:"></a>
+	<h3 class="subsubtitle method-title">smGridView:numberOfRowsInSection:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Use this method if your sections contain different number of rows. Otherwise you can use numberOfRows property</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSInteger)smGridView:(SMGridView *)<em>gridView</em> numberOfRowsInSection:(NSInteger)<em>section</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>section</em></dt>
+			<dd><p>The target section</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>number of rows in a section</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:performRemoveIndexPath:" title="smGridView:performRemoveIndexPath:"></a>
+	<h3 class="subsubtitle method-title">smGridView:performRemoveIndexPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method will be called when a remove animation is finished. <code>SMGridViewDataSource</code> should remove the item at indexPath position in the implementation of this method</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)smGridView:(SMGridView *)<em>gridView</em> performRemoveIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>The indexPath to delete</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:shouldMoveItemFrom:to:" title="smGridView:shouldMoveItemFrom:to:"></a>
+	<h3 class="subsubtitle method-title">smGridView:shouldMoveItemFrom:to:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method will be called when the user sorts the grid. DataSource should update its data accordingly</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)smGridView:(SMGridView *)<em>gridView</em> shouldMoveItemFrom:(NSIndexPath *)<em>fromIndexPath</em> to:(NSIndexPath *)<em>toIndexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fromIndexPath</em></dt>
+			<dd><p>The original indexPath</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>toIndexPath</em></dt>
+			<dd><p>The new indexPath</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:sizeForHeaderInSection:" title="smGridView:sizeForHeaderInSection:"></a>
+	<h3 class="subsubtitle method-title">smGridView:sizeForHeaderInSection:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Implement this method if you want to have header views for your section</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CGSize)smGridView:(SMGridView *)<em>gridView</em> sizeForHeaderInSection:(NSInteger)<em>section</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>section</em></dt>
+			<dd><p>The target section</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The size of the header in the given section. Return CGSizeZero if no header</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:sizeForIndexPath:" title="smGridView:sizeForIndexPath:"></a>
+	<h3 class="subsubtitle method-title">smGridView:sizeForIndexPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Size of a view in a given indexPath</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CGSize)smGridView:(SMGridView *)<em>gridView</em> sizeForIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>The target indexPath</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Size of a view in a given indexPath</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:viewForHeaderInSection:" title="smGridView:viewForHeaderInSection:"></a>
+	<h3 class="subsubtitle method-title">smGridView:viewForHeaderInSection:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Implement this method if you want to have header views for your section</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIView *)smGridView:(SMGridView *)<em>gridView</em> viewForHeaderInSection:(NSInteger)<em>section</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>section</em></dt>
+			<dd><p>The target section</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The header view for a given section. Return nil if no header.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:viewForIndexPath:" title="smGridView:viewForIndexPath:"></a>
+	<h3 class="subsubtitle method-title">smGridView:viewForIndexPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>You should use dequeReusableView or dequeReusableViewWithClass: inside this method for better performance</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (UIView *)smGridView:(SMGridView *)<em>gridView</em> viewForIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>The target indexPath</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Size of a view in a given indexPath</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:willQueueView:" title="smGridView:willQueueView:"></a>
+	<h3 class="subsubtitle method-title">smGridView:willQueueView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This is being called whenever a view is queued. Use this to stop animations, clean&hellip;</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)smGridView:(SMGridView *)<em>gridView</em> willQueueView:(UIView *)<em>view</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>view</em></dt>
+			<dd><p>The view that is about to be queued</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridViewSameSize:" title="smGridViewSameSize:"></a>
+	<h3 class="subsubtitle method-title">smGridViewSameSize:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Return yes in this method if all your views have the same size. This will have a big improvement in performance</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)smGridViewSameSize:(SMGridView *)<em>gridView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridViewShowLoader:" title="smGridViewShowLoader:"></a>
+	<h3 class="subsubtitle method-title">smGridViewShowLoader:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Use this method to decide wether to show a loader or not. Typically you make your <code>SMGridViewDataSource</code> manage this method and returning <code>YES</code>or <code>NO</code> if it is loading more content.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)smGridViewShowLoader:(SMGridView *)<em>gridView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Wether to show or not the loader</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Brewster. All rights reserved. (Last updated: 2012-10-09)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

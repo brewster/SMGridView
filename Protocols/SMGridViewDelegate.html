@@ -1,0 +1,765 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>SMGridViewDelegate Protocol Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">SMGridView </a></h1>
+				<a id="developerHome" href="../index.html">Brewster</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">SMGridViewDelegate Protocol Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/smGridView:didChangePage:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:didChangePage:</option>
+	
+	<option value="//api/name/smGridView:didChangePagePartial:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:didChangePagePartial:</option>
+	
+	<option value="//api/name/smGridView:didFinishAddingIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:didFinishAddingIndexPath:</option>
+	
+	<option value="//api/name/smGridView:didFinishRemovingIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:didFinishRemovingIndexPath:</option>
+	
+	<option value="//api/name/smGridView:didHideLoaderView:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:didHideLoaderView:</option>
+	
+	<option value="//api/name/smGridView:didShowLoaderView:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:didShowLoaderView:</option>
+	
+	<option value="//api/name/smGridView:startDraggingView:atIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:startDraggingView:atIndex:</option>
+	
+	<option value="//api/name/smGridView:stopDraggingView:atIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- smGridView:stopDraggingView:atIndex:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:didChangePage:">smGridView:didChangePage:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:didChangePagePartial:">smGridView:didChangePagePartial:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:didFinishAddingIndexPath:">smGridView:didFinishAddingIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:didFinishRemovingIndexPath:">smGridView:didFinishRemovingIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:didHideLoaderView:">smGridView:didHideLoaderView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:didShowLoaderView:">smGridView:didShowLoaderView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:startDraggingView:atIndex:">smGridView:startDraggingView:atIndex:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/smGridView:stopDraggingView:atIndex:">smGridView:stopDraggingView:atIndex:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="SMGridViewDelegate Protocol Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">SMGridViewDelegate Protocol Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">UIScrollViewDelegate</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">SMGridView.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Implement This protocol to get notified about certain behaviors of the <a href="../Classes/SMGridView.html">SMGridView</a>.
+<strong>Important:</strong> This object will be used as the origin UIScrollViewDelegate. Never set the property delegate of UIScrollView of a SMGridView, use instead the property <a href="../Classes/SMGridView.html#//api/name/gridDelegate">[SMGridView gridDelegate]</a></p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:didFinishAddingIndexPath:">&ndash;&nbsp;smGridView:didFinishAddingIndexPath:</a></code>
+		<span class="tooltip"><p>Called once a new view has been added to the view as a result to a call to <a href="../Classes/SMGridView.html#//api/name/addItemAtIndexPath:">[SMGridView addItemAtIndexPath:]</a></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:didFinishRemovingIndexPath:">&ndash;&nbsp;smGridView:didFinishRemovingIndexPath:</a></code>
+		<span class="tooltip"><p>Called once a view has been removed as a result to a call to <a href="../Classes/SMGridView.html#//api/name/removeItemAtIndexPath:">[SMGridView removeItemAtIndexPath:]</a></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:didChangePage:">&ndash;&nbsp;smGridView:didChangePage:</a></code>
+		<span class="tooltip"><p>Called when property pagingEnabled is YES and a page changes and the grid stops moving</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:didChangePagePartial:">&ndash;&nbsp;smGridView:didChangePagePartial:</a></code>
+		<span class="tooltip"><p>Called when property pagingEnabled is YES and a new page is more visible than the former current page</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:didShowLoaderView:">&ndash;&nbsp;smGridView:didShowLoaderView:</a></code>
+		<span class="tooltip"><p>Called when the loaderView is being added to be view hierarchy. Use this to init animations&hellip;</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:didHideLoaderView:">&ndash;&nbsp;smGridView:didHideLoaderView:</a></code>
+		<span class="tooltip"><p>Called when loaderView is hidden. This gives you the change to stop animations&hellip;</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:startDraggingView:atIndex:">&ndash;&nbsp;smGridView:startDraggingView:atIndex:</a></code>
+		<span class="tooltip"><p>Called when a view starts being dragged</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/smGridView:stopDraggingView:atIndex:">&ndash;&nbsp;smGridView:stopDraggingView:atIndex:</a></code>
+		<span class="tooltip"><p>Called when a view stops being dragged</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:didChangePage:" title="smGridView:didChangePage:"></a>
+	<h3 class="subsubtitle method-title">smGridView:didChangePage:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when property pagingEnabled is YES and a page changes and the grid stops moving</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)smGridView:(SMGridView *)<em>gridView</em> didChangePage:(NSInteger)<em>page</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>page</em></dt>
+			<dd><p>The new page</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:didChangePagePartial:" title="smGridView:didChangePagePartial:"></a>
+	<h3 class="subsubtitle method-title">smGridView:didChangePagePartial:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when property pagingEnabled is YES and a new page is more visible than the former current page</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)smGridView:(SMGridView *)<em>gridView</em> didChangePagePartial:(NSInteger)<em>page</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>page</em></dt>
+			<dd><p>The new page</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:didFinishAddingIndexPath:" title="smGridView:didFinishAddingIndexPath:"></a>
+	<h3 class="subsubtitle method-title">smGridView:didFinishAddingIndexPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called once a new view has been added to the view as a result to a call to <a href="../Classes/SMGridView.html#//api/name/addItemAtIndexPath:">[SMGridView addItemAtIndexPath:]</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)smGridView:(SMGridView *)<em>gridView</em> didFinishAddingIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>The added indexPath</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:didFinishRemovingIndexPath:" title="smGridView:didFinishRemovingIndexPath:"></a>
+	<h3 class="subsubtitle method-title">smGridView:didFinishRemovingIndexPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called once a view has been removed as a result to a call to <a href="../Classes/SMGridView.html#//api/name/removeItemAtIndexPath:">[SMGridView removeItemAtIndexPath:]</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)smGridView:(SMGridView *)<em>gridView</em> didFinishRemovingIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexPath</em></dt>
+			<dd><p>The added indexPath</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:didHideLoaderView:" title="smGridView:didHideLoaderView:"></a>
+	<h3 class="subsubtitle method-title">smGridView:didHideLoaderView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when loaderView is hidden. This gives you the change to stop animations&hellip;</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)smGridView:(SMGridView *)<em>gridView</em> didHideLoaderView:(UIView *)<em>loaderView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>loaderView</em></dt>
+			<dd><p>The view to be used as a loader. Typically a UIActivityIndicatorView but could be anything</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:didShowLoaderView:" title="smGridView:didShowLoaderView:"></a>
+	<h3 class="subsubtitle method-title">smGridView:didShowLoaderView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the loaderView is being added to be view hierarchy. Use this to init animations&hellip;</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)smGridView:(SMGridView *)<em>gridView</em> didShowLoaderView:(UIView *)<em>loaderView</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>loaderView</em></dt>
+			<dd><p>The view to be used as a loader. Typically a UIActivityIndicatorView but could be anything</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:startDraggingView:atIndex:" title="smGridView:startDraggingView:atIndex:"></a>
+	<h3 class="subsubtitle method-title">smGridView:startDraggingView:atIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when a view starts being dragged</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)smGridView:(SMGridView *)<em>gridView</em> startDraggingView:(UIView *)<em>view</em> atIndex:(int)<em>index</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>view</em></dt>
+			<dd><p>The view being Dragged</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>index</em></dt>
+			<dd><p>The index inside its section of this view</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/smGridView:stopDraggingView:atIndex:" title="smGridView:stopDraggingView:atIndex:"></a>
+	<h3 class="subsubtitle method-title">smGridView:stopDraggingView:atIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when a view stops being dragged</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)smGridView:(SMGridView *)<em>gridView</em> stopDraggingView:(UIView *)<em>view</em> atIndex:(int)<em>index</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gridView</em></dt>
+			<dd><p>The calling <a href="../Classes/SMGridView.html">SMGridView</a></p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>view</em></dt>
+			<dd><p>The view being Dragged</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>index</em></dt>
+			<dd><p>The index inside its section of this view</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SMGridView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Brewster. All rights reserved. (Last updated: 2012-10-09)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
