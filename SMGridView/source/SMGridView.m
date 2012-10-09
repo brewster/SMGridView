@@ -2,8 +2,7 @@
 //  SMGridView.m
 //  SMGridView
 //
-//  Created by Miguel Cohnen on 28/10/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Miguel Cohnen and Sarah Lensing on 28/10/11.
 //
 
 #import "SMGridView.h"
