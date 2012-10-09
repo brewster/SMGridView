@@ -30,6 +30,7 @@
 
 /**
  You should use dequeReusableView or dequeReusableViewWithClass: inside this method for better performance
+ 
  @return Size of a view in a given indexPath
  @param gridView The calling SMGridView
  @param indexPath The target indexPath
@@ -41,6 +42,7 @@
 
 /**
  Use this method if your sections contain different number of rows. Otherwise you can use numberOfRows property
+ 
  @return number of rows in a section
  @param gridView The calling SMGridView
  @param section The target section
@@ -49,26 +51,32 @@
 
 /**
  This method will be called when the user sorts the grid. DataSource should update its data accordingly
+ 
+ @param gridView The calling SMGridView
  @param fromIndexPath The original indexPath
  @param toIndexPath The new indexPath
  */
-- (void)smGridView:(SMGridView *)gridView shouldMoveItemFrom:(NSIndexPath *)fromIndexPath to:(NSIndexPath *)indexPath;
+- (void)smGridView:(SMGridView *)gridView shouldMoveItemFrom:(NSIndexPath *)fromIndexPath to:(NSIndexPath *)toIndexPath;
 
 /**
  This method will be called when a remove animation is finished. `SMGridViewDataSource` should remove the item at indexPath position in the implementation of this method
+ 
  @param gridView The calling SMGridView
- @param section The indexPath to delete
+ @param indexPath The indexPath to delete
  */
 - (void)smGridView:(SMGridView *)gridView performRemoveIndexPath:(NSIndexPath *)indexPath;
 
 /**
  Use this method to decide wether to show a loader or not. Typically you make your `SMGridViewDataSource` manage this method and returning `YES`or `NO` if it is loading more content.
+ 
+ @param gridView The calling SMGridView
  @return Wether to show or not the loader
  */
 - (BOOL)smGridViewShowLoader:(SMGridView *)gridView;
 
 /**
  This is being called whenever a view is queued. Use this to stop animations, clean...
+ 
  @param gridView The calling SMGridView
  @param view The view that is about to be queued
  */
@@ -76,6 +84,7 @@
 
 /**
  Return yes in this method if all your views have the same size. This will have a big improvement in performance
+ 
  @param gridView The calling SMGridView
  */
 - (BOOL)smGridViewSameSize:(SMGridView *)gridView;
@@ -101,7 +110,7 @@
  Implement this method if you want to have header views for your section
  
  @param gridView The calling SMGridView
- @param gridView The target section
+ @param section The target section
  @return The header view for a given section. Return nil if no header.
  */
 - (UIView *)smGridView:(SMGridView *)gridView viewForHeaderInSection:(NSInteger)section;
