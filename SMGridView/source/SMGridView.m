@@ -14,7 +14,7 @@ static CGFloat const kSMTVdefaultPadding = 5;
 // Defines extra px to preload
 static CGFloat const kSMTVdefaultDeltaLoad = 150;
 static CGFloat const kSMTVdefaultPagesToPreload = 1;
-static float const kSMTVanimDuration = 0.2;
+static float const kSMTVanimDuration = 0;
 static float const kSMTdefaultDragMinDistance = 30;
 
 enum {
