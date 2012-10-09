@@ -23,7 +23,7 @@ You can run a very complete example with lot of functionality just by running th
 ## ARC ##
 Currently this project does not use ARC. It would be fairly simply to change it to support ARC, but while that happens, if your project uses ARC you will need to set a `fno-obj-arc` flag for the SMGridView flags.
 
-To set a compiler flag in Xcode, go to your active target and select the "Build Phases" tab. Now select all AFNetworking source files, press Enter, insert `-fobjc-arc` or `-fno-objc-arc` and then "Done" to enable or disable ARC for AFNetworking.
+To set a compiler flag in Xcode, go to your active target and select the "Build Phases" tab. Now select all source files (SMGridView.h and SMGridView.m), press Enter, insert `-fobjc-arc` or `-fno-objc-arc` and then "Done" to enable or disable ARC for SMGridView.
 
 ## Typical use ##
 First import the header. I'm going to import it in the .h file of my view controller. I do this, as I want my custom view controller to be the dataSource and delegate of the SMGridView.
