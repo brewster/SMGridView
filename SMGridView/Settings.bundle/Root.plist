@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>Title</key>
-			<string>SMGridViewTest</string>
+			<string>Items</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>
@@ -30,27 +30,7 @@
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Vertical</string>
-			<key>Key</key>
-			<string>vertical</string>
-			<key>DefaultValue</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Squares</string>
-			<key>Key</key>
-			<string>squares</string>
-			<key>DefaultValue</key>
-			<false/>
-		</dict>
-		<dict>
+        <dict>
 			<key>DefaultValue</key>
 			<string>4</string>
 			<key>Values</key>
@@ -73,6 +53,32 @@
 			<string># Sections</string>
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>
+		</dict>
+        <dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Squares</string>
+			<key>Key</key>
+			<string>squares</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+        <dict>
+			<key>Title</key>
+			<string>SMGridView</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Vertical</string>
+			<key>Key</key>
+			<string>vertical</string>
+			<key>DefaultValue</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
@@ -100,7 +106,7 @@
 			<key>Key</key>
 			<string>loader_enabled</string>
 			<key>Title</key>
-			<string>Loader</string>
+			<string>Show Loader</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 		</dict>

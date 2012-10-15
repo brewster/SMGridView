@@ -1,50 +1,201 @@
-SMGridView for iOS
-====================
+# SMGridView for iOS #
+This open-source, UIScrollView subclass allows you to have a custom grid that uses methods similar to UITableView (and UITableViewDataSource and UITableViewDelegate) and that supports a lot of extra functionality like:
 
-This open-source class allows you to have a custom grid that will use methods similar to UITableView (and UITableViewDataSource and UITableViewDelegate) and that supports a lot of extra functionality.
+* Choice between horizontal or vertical scroll
+* Support for any view, not just a fixed view like UITableViewCell
+* Support for sections
+* Support for inserting or deleting items with an animation
+* Support to sort items using drag & drop
+* Veeeery fast, supporting reusing views
+* Support for pagination
+* Laying out items in a grid or line (single row grid) even if you don't plan to scroll
+* Ability to display a loader at the end of the grid
 
-* Change between [Horizontal or Vertical][] scroll.
-* Support for any view, not just a fixed view like UITableViewCell.
-* Support for sections.
-* Support for inserting or deleting items with an animation.
-* Support to sort items using drag & drop.
-* Veeeery fast, supporting reusing views.
-* It is a UIScrollView, so you can access all its methods and set its UIScrollViewDelegate.
-* Supports pagination.
-* You can even use this class even if you don't plan to scroll, just to layout items in a grid or line (single row grid).
+You can access full API documentation in http://brewster.github.com/SMGridView/Classes/SMGridView.html
 
-# Installation
+## Installation ##
+To install simply clone the project and drag SMGridView.h and SMGridView.m into your project. These files are inside SMGridView/source. After that, simply import SMGridView.h and you are ready to use it. 
 
-To install simply clone the project and drag SMGridView.h and SMGridView.m into your project. This files are inside SMGridView/source. After that, simply import SMGridView.h and you are ready to use it. 
+## Example project ##
+You can checkout a complete example with lot of functionality just by running this project in xCode. The code is really simple, everything happens inside the `SMGridViewTest.m` class. To manage the settings, I'm using [inAppSettings](http://www.inappsettingskit.com/), so I added the library into this project as well. Play with the settings in edit to see how the grid reacts to changes. 
 
-# Typical use
+## ARC ##
+Currently this project does not use ARC. It would be fairly simply to change it to support ARC, but until that happens, you will need to set a `fno-obj-arc` compiler flag for SMGridView if your project uses ARC.
 
-First import the header. I'm going to import it in the .h file of my view controller. I do this, as I want my custom view controller to be the dataSource and delegate of the SMGridView.
+To set a compiler flag in Xcode, go to your active target and select the "Build Phases" tab. Then select all source files (SMGridView.h and SMGridView.m), press Enter, insert `-fobjc-arc` or `-fno-objc-arc` and then press "Done".
 
-	...
-    #import "SMGridView.h"
-	...
-	@interface MyViewController :UIViewController <SMGridViewDataSource, SMGridViewDelegate>
-	...
-	@property (nonatomic, strong) SMGridView *grid;
-	...
+## Typical use ##
+First import the header. I import it in the .h file of my view controller because I want my custom view controller to be the dataSource and delegate of the SMGridView.
+
+```objective-c
+#import "SMGridView.h"
+@interface SMGridViewTestViewController : UIViewController <SMGridViewDataSource, SMGridViewDelegate>
+
+@property (nonatomic, retain) SMGridView *grid;
+    
+@end
+```
 	
-Now lets create the SMGridView. If you like to use nib files, you could create it there and link it with an Outlet. I'm just going to create the SMGridView in viewDidLoad method.
+Now lets create the SMGridView. If you like to use nib files, you can create it in the interface and link it with an IBOutlet. I'm just going to create the SMGridView in the viewDidLoad method.
 
-	...
-	@implementation MyViewController
+```objective-c
+@implementation MyViewController
 	
-	@synthesize grid = _grid;
-	...
-	- (void)viewDidLoad {
-		[super viewDidLoad];
-		self.grid = [[[SMGridView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.frame.size.height)] autorelease];
+@synthesize grid = _grid;
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	self.grid = [[[SMGridView alloc] initWithFrame:CGRectMake(0, 
+															  0,
+															  self.view.frame.size.width,
+															  self.frame.size.height)] autorelease];
+	self.grid.dataSource = self;
+	self.grid.delegate = self;
+}
+
+- (void)dealloc {
+	[_grid release];
+	[super dealloc];
+}
+```
+
+All the methods in SMGridViewDelegate are optional, but SMGridDataSource requires you to implement some methods:
+
+```objective-c
+// 100 items, I only have 1 section (default), so no need to read and adapt for section parameters
+- (NSInteger)smGridView:(SMGridView *)gridView numberOfItemsInSection:(NSInteger)section {
+	return 100;
+}
+
+// Return views of size 100x100
+- (CGSize)smGridView:(SMGridView *)gridView sizeForIndexPath:(NSIndexPath *)indexPath {
+	return CGSizeMake(100, 100);
+}
+
+- (UIView *)smGridView:(SMGridView *)gridView viewForIndexPath:(NSIndexPath *)indexPath {
+	// Check if we can reuse
+	UILabel *label = [gridView dequeReusableView];
+	if (!label) {
+		label = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)] autorelease]
 	}
+	label.text = [NSString stringWithFormat:@"%d", indexPath.row];
+	return label;
+}
+```
 
+Now all we have to do is call the `reloadData` method. Just in like a UITableView, this method will actually create the views. Let's do this in viewDidLoad:
 
-# Example
+```objective-c
+@implementation MyViewController
+	
+@synthesize grid = _grid;
 
-This project contains an example of how to use it. To run it, simply open the project file in XCode and run it. You can press the Edit button to change some of the settings. The source code has comments but it should be easy to follow. I didn't use nib files as I don't like them.
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	self.grid = [[[SMGridView alloc] initWithFrame:CGRectMake(0, 
+															  0,
+															  self.view.frame.size.width,
+															  self.frame.size.height)] autorelease];
+	
+	self.grid.dataSource = self;
+	self.grid.delegate = self;
+	
+	[self.grid reloadData];
+}
 
-### Horizontal or Vertical ###
-If you want to use a vertical scroll, set the vertical property to YES. Set it to NO (default) for horizontal scroll instead.
+- (void)dealloc {
+	[_grid release];
+	[super dealloc];
+}
+```
+
+## Beyond the basics ##
+
+### Orientation ###
+You can use the `vertical` property to decide wether you want vertical (YES) or horizontal (NO) orientation. The default is horizontal (NO). You need to call reloadData after changing this property.
+
+### Padding ###
+There is a property called `padding` that you can set to decide the space between the objects in the grid and the edges of the grid itself.
+
+### Adding/Removing ###
+If you want to add or remove an item, all you have to do is adapt the dataSource (`numberOfItemsInSection` should return a different number) and call reloadData. 
+However, SMGridView supports animating adding or removing items. 
+
+To add a view using an animation you should call 
+```objective-c
+- (void)addItemAtIndexPath:(NSIndexPath *)indexPath;
+```
+once the dataSource is ready.
+
+Removing an item is a little bit more complicated (but not much more!). First, without adjusting the dataSource, you call
+```objective-c
+- (void)removeItemAtIndexPath:(NSIndexPath *)indexPath;
+```
+Once the grid scrolls to the position where the item needs to be removed, the dataSource will receive a call to 
+```objective-c
+- (void)smGridView:(SMGridView *)gridView performRemoveIndexPath:(NSIndexPath *)indexPath;
+```
+This is where you have to adapt your dataSource. And that is it
+ 
+
+This project contains an example of how to use SMGridView. To test it out, simply open the project file in XCode and run it. You can press the Edit button to change some of the settings. The source code has comments but it should be easy to follow. I didn't use nib files as I don't like them.
+
+### Sorting items ###
+To use drag & drop features for sorting the grid, you should have your views be subclasses of `UIControl`. Then you need to set `enableSort` to YES. Once you drag & drop an item into a new position, this method will be called in the `SMGridViewDataSource`:
+
+```objective-c
+- (void)smGridView:(SMGridView *)gridView 
+	    shouldMoveItemFrom:(NSIndexPath *)fromIndexPath
+		to:(NSIndexPath *)indexPath;
+``` 
+In the implementation of this method, you should change the dataSource accordingly to reflect the order change. 
+Currently you can only sort items within their section. No section change is allowed (yet!).
+
+### Sections ###
+SMGridView supports sections. To have different sections, implement the following method in the `SMGridViewDataSource`:
+```objective-c
+- (NSInteger)numberOfSectionsInSMGridView:(SMGridView *)gridView;
+```
+All the `SMGridViewDataSource` methods will pass an NSIndexPath object. You can access the section and row properties of this object just like you would do with a UITableView.
+
+### Section Headers ###
+You can have section headers just as you would with a UITableView. Simply implement these 2 methods in your dataSource:
+```objective-c
+- (CGSize)smGridView:(SMGridView *)gridView sizeForHeaderInSection:(NSInteger)section;
+
+- (UIView *)smGridView:(SMGridView *)gridView viewForHeaderInSection:(NSInteger)section;
+```
+If you want your headers to stick in the top of the grid, just set the property `stickyHeaders` to YES in the SMGridView.
+
+### Same Size Performance boost ###
+SMGridView needs to know the size of all the items to calculate how long the content of the scroll is. This is why the dataSource has the method 
+```objective-c
+- (CGSize)smGridView:(SMGridView *)gridView sizeForIndexPath:(NSIndexPath *)indexPath;
+```
+However, if all your views have the same size, SMGridView can perform way better. If this is the case, simply implement this method in the `SMGridViewDataSource`like this:
+```objective-c
+- (BOOL)smGridViewSameSize:(SMGridView *)gridView {
+	return YES
+}
+```
+This will allow SMGridView to do fewer calculations and perform better.
+
+### Pagination ###
+You can enable pagination by setting the `pagingEnabled` property to YES. However, section headers are not yet compatible with pagination, so you shouldn't combine these 2 features.
+
+### Loader ###
+It is a common pattern to have a scrollView that will load more content once you scroll down. If you reach the bottom of the scroll and you are still loading more content, it's useful to display a loader on the bottom. Guess what, we took care of that. To display a custom view at the bottom of the grid you need to do 2 things:
+* Set the `loaderView` property to the UIView you want to show.
+* In the `SMGridViewDataSource`, implement this method:
+```objective-c
+- (BOOL)smGridViewShowLoader:(SMGridView *)gridView;
+```
+and return YES whenever you want to show the loader. Typically the dataSource will know when you are still loading content or when you finish, so this method should reflect that. 
+
+### Loading new data performance hint ###
+If you are using the loader and want to add let's say a batch of 100 more items to the bottom of the grid, instead of calling `reloadData`, you can call `reloadDataOnlyNew`. This will increase the performance of the grid, as it only needs to calculate positions for the new items, and not the whole grid.
+
+## License ##
+
+SMGridView is distributed under the MIT license. See the attached LICENSE
+file for all the sordid details.

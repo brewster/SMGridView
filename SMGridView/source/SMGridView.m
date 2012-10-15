@@ -2,8 +2,7 @@
 //  SMGridView.m
 //  SMGridView
 //
-//  Created by Miguel Cohnen on 28/10/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Miguel Cohnen and Sarah Lensing on 28/10/11.
 //
 
 #import "SMGridView.h"
@@ -15,10 +14,9 @@ static CGFloat const kSMTVdefaultPadding = 5;
 // Defines extra px to preload
 static CGFloat const kSMTVdefaultDeltaLoad = 150;
 static CGFloat const kSMTVdefaultPagesToPreload = 1;
-static float const kSMTVanimDuration = 0.2;
+static float const kSMTVanimDuration = 0;
 static float const kSMTdefaultDragMinDistance = 30;
 
-////////////////////////////////////////////////////////////////////////////////////////////
 enum {
     SMGridViewSortAnimSpeedNone,
     SMGridViewSortAnimSpeedSlow,
@@ -27,7 +25,7 @@ enum {
 };
 typedef NSUInteger SMGridViewSortAnimSpeed;
 
-////////////////////////////////////////////////////////////////////////////////////////////
+
 @interface SMGridViewItem : NSObject <NSCopying> {    
 }
 
@@ -44,7 +42,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 @end
 
 
-////////////////////////////////////////////////////////////////////////////////////////////
 @implementation SMGridViewItem
 
 @synthesize rect;
@@ -126,7 +123,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 @end
 
 
-////////////////////////////////////////////////////////////////////////////////////////////
 @implementation SMGridView
 
 @synthesize dataSource = _dataSource;
@@ -1255,14 +1251,39 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 
 #pragma mark - Adding/Removing items
 
+- (void)scrollToRectHeaderAware:(CGRect)rect animated:(BOOL)animated {
+    UIView *header = [self headerViewForSection:[self currentSection]];
+    if (header) {
+        if (self.vertical) {
+            rect.origin = CGPointMake(rect.origin.x, rect.origin.y - header.frame.size.height);
+        } else {
+            rect.origin = CGPointMake(rect.origin.x - header.frame.size.width, rect.origin.y);
+        }
+    }
+    [self scrollRectToVisible:rect animated:animated];
+}
+
+- (CGRect)visibleRectHeaderAware {
+    CGRect visibleRect = visibleRect = CGRectMake(self.contentOffset.x, self.contentOffset.y, self.frame.size.width, self.frame.size.height);
+    UIView *header = [self headerViewForSection:[self currentSection]];
+    if (header) {
+        if (self.vertical) {
+            visibleRect.origin = CGPointMake(visibleRect.origin.x,
+                                             visibleRect.origin.y + header.frame.size.height);
+            visibleRect.size = CGSizeMake(visibleRect.size.width,
+                                          visibleRect.size.height - header.frame.size.height);
+        } else {
+            visibleRect.origin = CGPointMake(visibleRect.origin.x + header.frame.size.width,
+                                             visibleRect.origin.y);
+            visibleRect.size = CGSizeMake(visibleRect.size.width - header.frame.size.width,
+                                          visibleRect.size.height);
+        }
+    }
+    return visibleRect;
+}
 
 - (BOOL)rectIsVisible:(CGRect)rect {
-    CGRect visibleRect = CGRectZero;
-    if (self.vertical) {
-        visibleRect = CGRectMake(rect.origin.x, self.contentOffset.y, self.frame.size.width, self.frame.size.height);
-    }else {
-        visibleRect = CGRectMake(self.contentOffset.x, rect.origin.y, self.frame.size.width, self.frame.size.height);
-    }
+    CGRect visibleRect = [self visibleRectHeaderAware];
     return (CGRectContainsRect(visibleRect, rect));
 }
 
@@ -1421,7 +1442,8 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
             [self finishRemovingIndexPath:indexPath];
         }else {
             self.removingIndexPath = indexPath;
-            [self scrollRectToVisible:item.rect animated:YES];
+//            [self scrollRectToVisible:item.rect animated:YES];
+            [self scrollToRectHeaderAware:item.rect animated:YES];
         }
     }
 } 
@@ -1680,7 +1702,10 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     if ([self pageOutOfBounds:newPage]) {
         return;
     }
-    NSNumber *timerPage = [self.dragPageAnimTimer.userInfo objectForKey:@"newPage"];
+    NSNumber *timerPage = nil;
+    if (self.dragPageAnimTimer.isValid) {
+        [self.dragPageAnimTimer.userInfo objectForKey:@"newPage"];
+    }
     if (!timerPage || timerPage.intValue != newPage) {
         [self.dragPageAnimTimer invalidate];
         self.dragPageAnimTimer = [NSTimer timerWithTimeInterval:interval target:self selector:@selector(changePage:) userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:newPage] forKey:@"newPage"] repeats:NO];

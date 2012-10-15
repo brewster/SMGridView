@@ -10,6 +10,9 @@
 #import "SMGridView.h"
 #import "IASKAppSettingsViewController.h"
 
+/**
+ This is an example controller to show the possibilities of SMGridView
+ */
 @interface SMGridViewTestViewController : UIViewController <SMGridViewDataSource, SMGridViewDelegate>
 
 @end
