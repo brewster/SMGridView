@@ -818,6 +818,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
         if (self.frame.size.height > size.height) {
             [self loadViewsForCurrentPos]; 
         }
+        [self updateLoaderFrame];
         [self updateContentSize];
     }
 }
