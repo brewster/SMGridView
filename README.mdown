@@ -26,7 +26,7 @@ Currently this project does not use ARC. It would be fairly simply to change it 
 To set a compiler flag in Xcode, go to your active target and select the "Build Phases" tab. Then select all source files (SMGridView.h and SMGridView.m), press Enter, insert `-fobjc-arc` or `-fno-objc-arc` and then press "Done".
 
 ## Typical use ##
-First import the header. I import it in the .h file of my view controller because I want my custom view controller to be the dataSource and delegate of the SMGridView.
+First import the header. We import it in the .h file of the view controller because we want the custom view controller to be the dataSource and delegate of the SMGridView.
 
 ```objective-c
 #import "SMGridView.h"
@@ -63,7 +63,7 @@ Now let's create the SMGridView. If you like to use nib files, you can create it
 All the methods in SMGridViewDelegate are optional, but SMGridDataSource requires you to implement some methods:
 
 ```objective-c
-// 100 items, I only have 1 section (default), so no need to read and adapt for section parameters
+// 100 items, only one section (default), so no need to read and adapt for section parameters
 - (NSInteger)smGridView:(SMGridView *)gridView numberOfItemsInSection:(NSInteger)section {
 	return 100;
 }
