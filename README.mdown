@@ -1,23 +1,24 @@
 # SMGridView for iOS #
-This open-source, UIScrollView subclass allows you to have a custom grid that uses methods similar to UITableView (and UITableViewDataSource and UITableViewDelegate) and that supports a lot of extra functionality like:
 
-* Choice between horizontal or vertical scroll
-* Support for any view, not just a fixed view like UITableViewCell
-* Support for sections
-* Support for inserting or deleting items with an animation
-* Support to sort items using drag & drop
-* Veeeery fast, supporting reusing views
-* Support for pagination
-* Laying out items in a grid or line (single row grid) even if you don't plan to scroll
-* Ability to display a loader at the end of the grid
+A subclass of UIScrollView, SMGridView allows you to have a custom grid that uses methods similar to UITableView, UITableViewDataSource, and UITableViewDelegate. It provides support for:
 
-You can access full API documentation in http://brewster.github.com/SMGridView/Classes/SMGridView.html
+* Horizontal or vertical scroll
+* _Any_ view (not just a fixed view like UITableViewCell)
+* Sections
+* Insertion or deletion of items with animation
+* Sorting items with drag & drop
+* Reusing views (making it veeeery fast)
+* Pagination
+* Grid- or line-based layouts even if you don't need scroll
+* Loader display at the end of the grid
+
+See the [full API documentation here](http://brewster.github.com/SMGridView/Classes/SMGridView.html).
 
 ## Installation ##
-To install simply clone the project and drag SMGridView.h and SMGridView.m into your project. These files are inside SMGridView/source. After that, simply import SMGridView.h and you are ready to use it. 
+To install, simply clone the project and drag SMGridView.h and SMGridView.m into your project. These files are inside SMGridView/source. After that, import SMGridView.h and you are ready to use it. 
 
 ## Example project ##
-You can checkout a complete example with lot of functionality just by running this project in xCode. The code is really simple, everything happens inside the `SMGridViewTest.m` class. To manage the settings, I'm using [inAppSettings](http://www.inappsettingskit.com/), so I added the library into this project as well. Play with the settings in edit to see how the grid reacts to changes. 
+You can check out a complete example with lot of functionality just by running this project in xCode. The code is really simple, everything happens inside the `SMGridViewTest.m` class. To manage the settings, we use [inAppSettings](http://www.inappsettingskit.com/), so that library is included in this project as well. Play with the settings to see how the grid reacts to changes. 
 
 ## ARC ##
 Currently this project does not use ARC. It would be fairly simply to change it to support ARC, but until that happens, you will need to set a `fno-obj-arc` compiler flag for SMGridView if your project uses ARC.
@@ -35,8 +36,8 @@ First import the header. I import it in the .h file of my view controller becaus
     
 @end
 ```
-	
-Now lets create the SMGridView. If you like to use nib files, you can create it in the interface and link it with an IBOutlet. I'm just going to create the SMGridView in the viewDidLoad method.
+
+Now let's create the SMGridView. If you like to use nib files, you can create it in the interface and link it with an IBOutlet. I'm just going to create the SMGridView in the viewDidLoad method.
 
 ```objective-c
 @implementation MyViewController
@@ -118,8 +119,7 @@ You can use the `vertical` property to decide wether you want vertical (YES) or 
 There is a property called `padding` that you can set to decide the space between the objects in the grid and the edges of the grid itself.
 
 ### Adding/Removing ###
-If you want to add or remove an item, all you have to do is adapt the dataSource (`numberOfItemsInSection` should return a different number) and call reloadData. 
-However, SMGridView supports animating adding or removing items. 
+If you want to add or remove an item, all you have to do is adapt the dataSource (`numberOfItemsInSection` should return a different number) and call reloadData. However, SMGridView supports animating adding or removing items. 
 
 To add a view using an animation you should call 
 ```objective-c
@@ -135,10 +135,9 @@ Once the grid scrolls to the position where the item needs to be removed, the da
 ```objective-c
 - (void)smGridView:(SMGridView *)gridView performRemoveIndexPath:(NSIndexPath *)indexPath;
 ```
-This is where you have to adapt your dataSource. And that is it
- 
+This is where you have to adapt your dataSource. And that is it!
 
-This project contains an example of how to use SMGridView. To test it out, simply open the project file in XCode and run it. You can press the Edit button to change some of the settings. The source code has comments but it should be easy to follow. I didn't use nib files as I don't like them.
+This project contains an example of how to use SMGridView. To test it out, simply open the project file in XCode and run it. You can press the Edit button to change some of the settings. The source code has comments but it should be easy to follow. Note that we did not use nib files.
 
 ### Sorting items ###
 To use drag & drop features for sorting the grid, you should have your views be subclasses of `UIControl`. Then you need to set `enableSort` to YES. Once you drag & drop an item into a new position, this method will be called in the `SMGridViewDataSource`:
@@ -172,28 +171,28 @@ SMGridView needs to know the size of all the items to calculate how long the con
 ```objective-c
 - (CGSize)smGridView:(SMGridView *)gridView sizeForIndexPath:(NSIndexPath *)indexPath;
 ```
-However, if all your views have the same size, SMGridView can perform way better. If this is the case, simply implement this method in the `SMGridViewDataSource`like this:
+However, if all your views have the same size, SMGridView can perform better. If this is the case, simply implement this method in the `SMGridViewDataSource`like this:
 ```objective-c
 - (BOOL)smGridViewSameSize:(SMGridView *)gridView {
 	return YES
 }
 ```
-This will allow SMGridView to do fewer calculations and perform better.
+This improves performance because SMGridView will do fewer calculations.
 
 ### Pagination ###
 You can enable pagination by setting the `pagingEnabled` property to YES. However, section headers are not yet compatible with pagination, so you shouldn't combine these 2 features.
 
 ### Loader ###
-It is a common pattern to have a scrollView that will load more content once you scroll down. If you reach the bottom of the scroll and you are still loading more content, it's useful to display a loader on the bottom. Guess what, we took care of that. To display a custom view at the bottom of the grid you need to do 2 things:
-* Set the `loaderView` property to the UIView you want to show.
-* In the `SMGridViewDataSource`, implement this method:
+It is a common pattern to have a scrollView that will load more content once you scroll down. If you reach the bottom of the scroll and you are still loading more content, it's useful to display a loader on the bottom. SMGridView provides support for that To display a custom view at the bottom of the grid you need to do two things:
+1. Set the `loaderView` property to the UIView you want to show.
+2. In the `SMGridViewDataSource`, implement this method:
 ```objective-c
 - (BOOL)smGridViewShowLoader:(SMGridView *)gridView;
 ```
 and return YES whenever you want to show the loader. Typically the dataSource will know when you are still loading content or when you finish, so this method should reflect that. 
 
 ### Loading new data performance hint ###
-If you are using the loader and want to add let's say a batch of 100 more items to the bottom of the grid, instead of calling `reloadData`, you can call `reloadDataOnlyNew`. This will increase the performance of the grid, as it only needs to calculate positions for the new items, and not the whole grid.
+If you are using the loader and want to add a batch of 100 more items to the bottom of the grid, instead of calling `reloadData`, you can call `reloadDataOnlyNew`. This will increase the performance of the grid, as it only needs to calculate positions for the new items, and not the whole grid.
 
 ## License ##
 
