@@ -10,6 +10,8 @@
 
 #define CGPointDistance(p1,p2) sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2))
 
+//#define kSMGridViewDebug 1
+
 static CGFloat const kSMTVdefaultPadding = 5;
 // Defines extra px to preload
 static CGFloat const kSMTVdefaultDeltaLoad = 150;
@@ -467,6 +469,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     NSMutableDictionary *addedItems = [NSMutableDictionary dictionary];
     __block int count = 0;
     [self loopItemsStarting:[NSIndexPath indexPathForRow:firstItemRow inSection:section] block:^(SMGridViewItem *item, BOOL *stop) {
+#ifdef kSMGridViewDebug
+        NSDate *date = [NSDate date];
+#endif
         if (CGRectIntersectsRect(loadRect, item.rect) || [self isCurrentHeaderItemSticky:item]) {
             if (!item.visible) {
                 [CATransaction begin];
@@ -486,6 +491,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
         }
         count++;
         [self updateRectForItem:item];
+#ifdef kSMGridViewDebug
+        NSLog(@"loopItem:%f",[date timeIntervalSinceNow]);
+#endif
     }];
     // Remove the no londer present
     NSMutableArray *toRemove = [NSMutableArray array];
@@ -540,7 +548,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     NSIndexPath *indexPath = item.indexPath;
     
     [self loopItemsStarting:indexPath block:^(SMGridViewItem *item, BOOL *stop) {
-        
+#ifdef kSMGridViewDebug
+        NSDate *date = [NSDate date];
+#endif
         NSIndexPath *indexPath = item.indexPath;
         if ([self isDraggingIndexPath:indexPath] && !item.header) {
             return;
@@ -570,6 +580,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
                 *stop = YES;
             }
         }
+#ifdef kSMGridViewDebug
+        NSLog(@"loopItem:%f",[date timeIntervalSinceNow]);
+#endif
     }];
 
     [self handleLoaderDisplay:[self calculateLoadRect:pos delta:self.deltaLoaderView]];
@@ -1299,7 +1312,13 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (void)reloadData {
+#ifdef kSMGridViewDebug
+    NSDate *date = [NSDate date];
+#endif
     [self reloadDataWithPage:-1];
+#ifdef kSMGridViewDebug
+    NSLog(@"reloadData:%f",[date timeIntervalSinceNow]);
+#endif
 }
 
 - (void)checkCorrectArrays {
