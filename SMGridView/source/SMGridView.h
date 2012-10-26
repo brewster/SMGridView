@@ -221,6 +221,7 @@
     NSMutableArray *_items;
     NSMutableArray *_headerItems;
     NSMutableArray *_visibleItems;
+    NSMutableArray *_bucketItems;
     id<SMGridViewDataSource> _dataSource;
     id<SMGridViewDelegate> _gridDelegate;
     NSInteger _currentPage;
