@@ -910,7 +910,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 
 - (void)addItem:(SMGridViewItem *)item toBucket:(int)bucket {
     if (_bucketItems.count - 1 < bucket || _bucketItems.count == 0) {
-        NSMutableArray *items = [[NSMutableArray alloc] init];
+        NSMutableArray *items = [NSMutableArray array];
         [items addObject:item];
         [_bucketItems addObject:items];
     }
