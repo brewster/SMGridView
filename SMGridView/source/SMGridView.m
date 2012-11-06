@@ -544,9 +544,12 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     int bucket = [self startBucketForRect:loadRect];
     int endBucket = [self endBucketForRect:loadRect];
 
-    SMGridViewItem *item = [[_bucketItems objectAtIndex:bucket] objectAtIndex:0];
-    NSIndexPath *indexPath = item.indexPath;
-    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    if (bucket < _bucketItems.count) {
+        SMGridViewItem *item = [[_bucketItems objectAtIndex:bucket] objectAtIndex:0];
+        indexPath = item.indexPath;
+    }
+
     [self loopItemsStarting:indexPath block:^(SMGridViewItem *item, BOOL *stop) {
 #ifdef kSMGridViewDebug
         NSDate *date = [NSDate date];
