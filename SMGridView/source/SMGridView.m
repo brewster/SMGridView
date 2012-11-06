@@ -10,12 +10,15 @@
 
 #define CGPointDistance(p1,p2) sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2))
 
+//#define kSMGridViewDebug 1
+
 static CGFloat const kSMTVdefaultPadding = 5;
 // Defines extra px to preload
 static CGFloat const kSMTVdefaultDeltaLoad = 150;
 static CGFloat const kSMTVdefaultPagesToPreload = 1;
 static float const kSMTVanimDuration = 0.2;
 static float const kSMTdefaultDragMinDistance = 30;
+static float const kSMdefaultBucketSize = 500;
 
 enum {
     SMGridViewSortAnimSpeedNone,
@@ -36,6 +39,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 @property (nonatomic, readonly) BOOL visible;
 @property (nonatomic, readonly) CGPoint centerPoint;
 @property (nonatomic, retain) NSIndexPath *indexPath;
+@property (nonatomic, retain) NSMutableArray *buckets;
 
 - (id)initWithRect:(CGRect)rect;
 
@@ -49,6 +53,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 @synthesize toAdd;
 @synthesize header;
 @synthesize indexPath = _indexPath;
+@synthesize buckets = _buckets;
 
 - (id)initWithRect:(CGRect)frame {
     self = [self init];
@@ -60,6 +65,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 
 - (void)dealloc {
     [_indexPath release];
+    [_buckets release];
     [super dealloc];
 }
 
@@ -94,6 +100,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     item.view = self.view;
     item.toAdd = self.toAdd;
     item.indexPath = self.indexPath;
+    item.buckets = self.buckets;
     return item;
 }
 
@@ -171,6 +178,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     _draggingOrigItemsIndex = -1;
     _draggingSection = -1;
     _sortWaitBeforeAnimate = .05;
+    _bucketItems = [[NSMutableArray alloc] init];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -461,6 +469,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     NSMutableDictionary *addedItems = [NSMutableDictionary dictionary];
     __block int count = 0;
     [self loopItemsStarting:[NSIndexPath indexPathForRow:firstItemRow inSection:section] block:^(SMGridViewItem *item, BOOL *stop) {
+#ifdef kSMGridViewDebug
+        NSDate *date = [NSDate date];
+#endif
         if (CGRectIntersectsRect(loadRect, item.rect) || [self isCurrentHeaderItemSticky:item]) {
             if (!item.visible) {
                 [CATransaction begin];
@@ -480,6 +491,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
         }
         count++;
         [self updateRectForItem:item];
+#ifdef kSMGridViewDebug
+        NSLog(@"loopItem:%f",[date timeIntervalSinceNow]);
+#endif
     }];
     // Remove the no londer present
     NSMutableArray *toRemove = [NSMutableArray array];
@@ -496,6 +510,28 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     [self handleLoaderDisplay:[self calculateLoadRect:pos delta:self.deltaLoaderView]];
 }
 
+- (int)startBucketForRect:(CGRect)loadRect {
+    int bucket;
+    if (self.vertical) {
+        bucket = loadRect.origin.y/kSMdefaultBucketSize;
+    } else {
+        bucket = loadRect.origin.x/kSMdefaultBucketSize;
+    }
+    bucket--;
+    bucket = MAX(0, bucket);
+    return bucket;
+}
+
+- (int)endBucketForRect:(CGRect)loadRect {
+    int endBucket;
+    if (self.vertical) {
+        endBucket = (loadRect.origin.y + loadRect.size.height)/kSMdefaultBucketSize;
+    } else {
+        endBucket = (loadRect.origin.x + loadRect.size.width)/kSMdefaultBucketSize;
+    }
+    return endBucket;
+}
+
 - (void)loadViewsForPos:(float)pos addedIndexes:(NSMutableArray *)addedIndexes {
     if ([_dataSource respondsToSelector:@selector(smGridViewSameSize:)] && [_dataSource smGridViewSameSize:self] && !self.pagingEnabled) {
         [self sameSizeLoadViewsForPos:(NSInteger)pos addedIndexes:addedIndexes];
@@ -504,7 +540,17 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     
     [self updateCurrentSection];
     CGRect loadRect = [self calculateLoadRect:pos delta:[self calculateDelta]];
-    [self loopItems:^(SMGridViewItem *item) {
+    
+    int bucket = [self startBucketForRect:loadRect];
+    int endBucket = [self endBucketForRect:loadRect];
+
+    SMGridViewItem *item = [[_bucketItems objectAtIndex:bucket] objectAtIndex:0];
+    NSIndexPath *indexPath = item.indexPath;
+    
+    [self loopItemsStarting:indexPath block:^(SMGridViewItem *item, BOOL *stop) {
+#ifdef kSMGridViewDebug
+        NSDate *date = [NSDate date];
+#endif
         NSIndexPath *indexPath = item.indexPath;
         if ([self isDraggingIndexPath:indexPath] && !item.header) {
             return;
@@ -528,6 +574,15 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
             }
         }
         [self updateRectForItem:item];
+
+        for (NSNumber *bucketNum in item.buckets) {
+            if (bucketNum.intValue > endBucket) {
+                *stop = YES;
+            }
+        }
+#ifdef kSMGridViewDebug
+        NSLog(@"loopItem:%f",[date timeIntervalSinceNow]);
+#endif
     }];
 
     [self handleLoaderDisplay:[self calculateLoadRect:pos delta:self.deltaLoaderView]];
@@ -850,6 +905,47 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     }
 }
 
+- (void)addItem:(SMGridViewItem *)item toBucket:(int)bucket {
+    if (_bucketItems.count - 1 < bucket || _bucketItems.count == 0) {
+        NSMutableArray *items = [[NSMutableArray alloc] init];
+        [items addObject:item];
+        [_bucketItems addObject:items];
+    }
+    else {
+        [[_bucketItems objectAtIndex:bucket] addObject:item];
+    }
+}
+
+- (CGRect)nextBucketForBucket:(int)startingBucket {
+    CGRect nextBucket;
+    if (self.vertical) {
+        nextBucket = CGRectMake(0, (startingBucket+1)*kSMdefaultBucketSize, self.frame.size.width, kSMdefaultBucketSize);
+    }
+    else {
+        nextBucket = CGRectMake((startingBucket+1)*kSMdefaultBucketSize, 0, kSMdefaultBucketSize, self.frame.size.width);
+    }
+    return nextBucket;
+}
+
+- (void)calculateBucketForItem:(SMGridViewItem *)item value:(CGFloat)value {
+    int startingBucket = value / kSMdefaultBucketSize;
+    
+    CGRect nextBucket = [self nextBucketForBucket:startingBucket];
+    int i = startingBucket;
+    while (CGRectIntersectsRect(nextBucket, item.rect)) {
+        i++;
+        nextBucket = [self nextBucketForBucket:i];
+    }
+    int endingBucket = i;
+    
+    NSMutableArray *allBuckets = [NSMutableArray array];
+    for (int i = startingBucket; i <= endingBucket; i++) {
+        [self addItem:item toBucket:i];
+        [allBuckets addObject:[NSNumber numberWithInt:i]];
+    }
+    item.buckets = allBuckets;
+}
+
 - (CGRect)calculateRectForIndexPath:(NSIndexPath *)indexPath row:(NSInteger)row addIndexPath:(NSIndexPath *)addIndexPath {
     NSMutableArray *posArray = [self posArrayInSection:indexPath.section];
     NSNumber *rowValue = [posArray objectAtIndex:row];
@@ -879,7 +975,8 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     return rect;
 }
 
-- (void)updatePosArray:(NSMutableArray *)posArray row:(NSInteger)row rect:(CGRect)rect {
+- (void)updatePosArray:(NSMutableArray *)posArray row:(NSInteger)row item:(SMGridViewItem *)item {
+    CGRect rect = item.rect;
     CGFloat value;
     if (self.vertical) {
         value = CGRectGetMaxY(rect) + self.padding;
@@ -887,6 +984,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
         value = CGRectGetMaxX(rect) + self.padding;
     }
     [posArray replaceObjectAtIndex:row withObject:[NSNumber numberWithFloat:value]];
+    [self calculateBucketForItem:item value:value];
 }
 
 - (void)loopItems:(void (^)(SMGridViewItem *item))block {
@@ -999,7 +1097,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     NSMutableArray *posArray = [self posArrayInSection:section];
     // Update posArray
     for (int i=0; i < posArray.count; i++) {
-        [self updatePosArray:posArray row:i rect:item.rect];
+        [self updatePosArray:posArray row:i item:item];
     }
 }
 
@@ -1053,13 +1151,14 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
             item.rect = [self calculateRectForIndexPath:[NSIndexPath indexPathForRow:i inSection:section] row:row addIndexPath:addIndexPath];
             item.toAdd = NO;
         }else {
-            item = [[[SMGridViewItem alloc] initWithRect:[self calculateRectForIndexPath:indexPath row:row addIndexPath:addIndexPath]] autorelease];
+            item = [[[SMGridViewItem alloc] init] autorelease];
+            item.rect = [self calculateRectForIndexPath:indexPath row:row addIndexPath:addIndexPath];
             item.toAdd = ([indexPath isEqual:addIndexPath]);
         }
         item.indexPath = indexPath;
         [tmpSectionItems insertObject:item atIndex:i];
         // If we're adding, do not update x value. (Because of animation stuff).
-        [self updatePosArray:[self posArrayInSection:section] row:row rect:item.rect];
+        [self updatePosArray:[self posArrayInSection:section] row:row item:item];
     }
     return tmpSectionItems;
 }
@@ -1181,11 +1280,12 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     for (int i = items.count -1; i < count; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
         int row = [self findRowToInsertIndexPath:indexPath];
-        SMGridViewItem *item = [[[SMGridViewItem alloc] initWithRect:[self calculateRectForIndexPath:indexPath row:row addIndexPath:nil]] autorelease];
+        SMGridViewItem *item = [[[SMGridViewItem alloc] init] autorelease];
+        item.rect = [self calculateRectForIndexPath:indexPath row:row addIndexPath:nil];
         item.indexPath = indexPath;
         [items insertObject:item atIndex:i];
         NSMutableArray *posArray = [self posArrayInSection:section];
-        [self updatePosArray:posArray row:row rect:item.rect];
+        [self updatePosArray:posArray row:row item:item];
     }
 
     [self updateExtraViews:YES];
@@ -1212,7 +1312,13 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (void)reloadData {
+#ifdef kSMGridViewDebug
+    NSDate *date = [NSDate date];
+#endif
     [self reloadDataWithPage:-1];
+#ifdef kSMGridViewDebug
+    NSLog(@"reloadData:%f",[date timeIntervalSinceNow]);
+#endif
 }
 
 - (void)checkCorrectArrays {

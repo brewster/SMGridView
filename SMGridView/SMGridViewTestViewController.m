@@ -75,12 +75,24 @@
     [_gridView reloadData];
 }
 
+- (UIView *)createEmptyView {
+    UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 300)] autorelease];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont boldSystemFontOfSize:36];
+    label.text = @"I'm empty :(";
+    label.textColor = [UIColor grayColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    return label;
+}
+
 - (void)createGrid {
     // Create the grid based on the current's vc view and a margin
     _gridView = [[SMGridView alloc] initWithFrame:CGRectMake(kGridMargin, kGridMargin, self.view.frame.size.width - 2*kGridMargin, self.view.frame.size.height - 2*kGridMargin)];
     _gridView.backgroundColor = [UIColor whiteColor];
     // Make it resizable
     _gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    // Empty view
+    _gridView.emptyView = [self createEmptyView];
     // We set ourselfs (vc) as both dataSource and delegate
     _gridView.gridDelegate = self;
     _gridView.dataSource = self;
@@ -227,7 +239,7 @@
 }
 
 - (UIView *)smGridView:(SMGridView *)gridView viewForHeaderInSection:(NSInteger)section {
-    if (!self.headersEnabled) {
+    if (!self.headersEnabled || [self smGridView:gridView numberOfItemsInSection:section] == 0) {
         return nil;
     }
     static NSArray *colors;
@@ -238,10 +250,10 @@
     
     CGSize headerSize = [self smGridView:gridView sizeForHeaderInSection:section];
     header.frame = CGRectMake(0, 0, headerSize.width, headerSize.height);
-    header.backgroundColor = [UIColor grayColor];
+    header.backgroundColor = [colors objectAtIndex:section%colors.count];
     
     UILabel *label = [[[UILabel alloc] init] autorelease];
-    label.backgroundColor = [colors objectAtIndex:section%colors.count];
+    label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.frame = CGRectMake(0, (headerSize.height - kHeaderSize)/2, header.frame.size.width, kHeaderSize);
     label.text = [NSString stringWithFormat:@"%d", section];
@@ -251,7 +263,7 @@
 }
 
 - (CGSize)smGridView:(SMGridView *)gridView sizeForHeaderInSection:(NSInteger)section {
-    if (!self.headersEnabled) {
+    if (!self.headersEnabled || [self smGridView:gridView numberOfItemsInSection:section] == 0) {
         return CGSizeZero;
     }
     if (gridView.vertical) {
