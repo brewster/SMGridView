@@ -709,7 +709,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (void)updateLoaderFrame {
-    if ([self loaderEnabled]) {
+    if (_loaderView) {
         CGRect frame = _loaderView.frame;
         if (self.pagingEnabled) {
             CGPoint contentOffset = [self contentOffsetForPage:[self numberOfPages] -1];
