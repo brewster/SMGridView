@@ -2,8 +2,9 @@
 
 A subclass of UIScrollView, SMGridView allows you to have a custom grid that uses methods similar to UITableView, UITableViewDataSource, and UITableViewDelegate. It provides support for:
 
-![](https://github.com/brewster/SMGridView/raw/master/vertical_w_headers.PNG)
 ![](https://github.com/brewster/SMGridView/raw/master/horizontal_square_no_header.PNG)
+&nbsp;
+![](https://github.com/brewster/SMGridView/raw/master/vertical_w_headers.PNG) 
 
 * Horizontal or vertical scroll
 * _Any_ view (not just a fixed view like UITableViewCell)
