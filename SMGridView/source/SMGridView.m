@@ -39,7 +39,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 @property (nonatomic, readonly) BOOL visible;
 @property (nonatomic, readonly) CGPoint centerPoint;
 @property (nonatomic, retain) NSIndexPath *indexPath;
-@property (nonatomic, retain) NSMutableArray *buckets;
 
 - (id)initWithRect:(CGRect)rect;
 
@@ -53,7 +52,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 @synthesize toAdd;
 @synthesize header;
 @synthesize indexPath = _indexPath;
-@synthesize buckets = _buckets;
 
 - (id)initWithRect:(CGRect)frame {
     self = [self init];
@@ -65,7 +63,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 
 - (void)dealloc {
     [_indexPath release];
-    [_buckets release];
     [super dealloc];
 }
 
@@ -100,7 +97,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     item.view = self.view;
     item.toAdd = self.toAdd;
     item.indexPath = self.indexPath;
-    item.buckets = self.buckets;
     return item;
 }
 
@@ -543,14 +539,15 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     
     int bucket = [self startBucketForRect:loadRect];
     int endBucket = [self endBucketForRect:loadRect];
-
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    if (bucket < _bucketItems.count) {
-        SMGridViewItem *item = [[_bucketItems objectAtIndex:bucket] objectAtIndex:0];
-        indexPath = item.indexPath;
+    
+    NSMutableSet *bucketItems = [NSMutableSet set];
+    for (int i=bucket; i<=endBucket; i++) {
+        [bucketItems addObjectsFromArray:[_bucketItems objectAtIndex:i]];
     }
 
-    [self loopItemsStarting:indexPath block:^(SMGridViewItem *item, BOOL *stop) {
+
+
+    for (SMGridViewItem *item in bucketItems) {
 #ifdef kSMGridViewDebug
         NSDate *date = [NSDate date];
 #endif
@@ -578,15 +575,10 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
         }
         [self updateRectForItem:item];
 
-        for (NSNumber *bucketNum in item.buckets) {
-            if (bucketNum.intValue > endBucket) {
-                *stop = YES;
-            }
-        }
 #ifdef kSMGridViewDebug
         NSLog(@"loopItem:%f",[date timeIntervalSinceNow]);
 #endif
-    }];
+    }
 
     [self handleLoaderDisplay:[self calculateLoadRect:pos delta:self.deltaLoaderView]];
 }
@@ -941,12 +933,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     }
     int endingBucket = i;
     
-    NSMutableArray *allBuckets = [NSMutableArray array];
     for (int i = startingBucket; i <= endingBucket; i++) {
         [self addItem:item toBucket:i];
-        [allBuckets addObject:[NSNumber numberWithInt:i]];
     }
-    item.buckets = allBuckets;
 }
 
 - (CGRect)calculateRectForIndexPath:(NSIndexPath *)indexPath row:(NSInteger)row addIndexPath:(NSIndexPath *)addIndexPath {
@@ -1302,6 +1291,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     }
     [self resetPosArrays];
     _reloadingData = YES;
+    [_bucketItems removeAllObjects];
     [self removeAllViews];
     [_items release];
     _items = nil;
