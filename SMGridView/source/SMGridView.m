@@ -541,11 +541,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     int endBucket = [self endBucketForRect:loadRect];
     
     NSMutableSet *bucketItems = [NSMutableSet set];
-    for (int i=bucket; i<=endBucket; i++) {
+    for (int i=bucket; i<=endBucket && i < _bucketItems.count; i++) {
         [bucketItems addObjectsFromArray:[_bucketItems objectAtIndex:i]];
     }
-
-
 
     for (SMGridViewItem *item in bucketItems) {
 #ifdef kSMGridViewDebug
@@ -1291,7 +1289,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     }
     [self resetPosArrays];
     _reloadingData = YES;
-    [_bucketItems removeAllObjects];
+    //[_bucketItems removeAllObjects];
     [self removeAllViews];
     [_items release];
     _items = nil;
