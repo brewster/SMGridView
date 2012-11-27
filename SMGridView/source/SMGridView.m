@@ -1289,7 +1289,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     }
     [self resetPosArrays];
     _reloadingData = YES;
-    //[_bucketItems removeAllObjects];
+    [_bucketItems removeAllObjects];
     [self removeAllViews];
     [_items release];
     _items = nil;
