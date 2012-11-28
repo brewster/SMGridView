@@ -905,7 +905,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
         [_bucketItems addObject:items];
     }
     else {
-        [[_bucketItems objectAtIndex:bucket] addObject:item];
+        if (![[_bucketItems objectAtIndex:bucket] containsObject:item]) {
+            [[_bucketItems objectAtIndex:bucket] addObject:item];
+        }
     }
 }
 
@@ -1065,7 +1067,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 
 - (void)addHeaderInSection:(NSInteger)section items:(NSMutableArray *)items {
     float firstPos = [[[self posArrayInSection:section] objectAtIndex:0] floatValue];
-    CGRect rect = CGRectZero;
+    CGRect rect = self.vertical?CGRectMake(0, firstPos, 0, 0):CGRectMake(firstPos, 0, 0, 0);
     
     if ([_dataSource respondsToSelector:@selector(smGridView:sizeForHeaderInSection:)]) {
         CGSize size = [_dataSource smGridView:self sizeForHeaderInSection:section];
