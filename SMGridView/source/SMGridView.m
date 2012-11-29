@@ -922,8 +922,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     return nextBucket;
 }
 
-- (void)calculateBucketForItem:(SMGridViewItem *)item value:(CGFloat)value {
-    int startingBucket = value / kSMdefaultBucketSize;
+- (void)calculateBucketForItem:(SMGridViewItem *)item {
+    float startPoint = self.vertical ? CGRectGetMinY(item.rect) :CGRectGetMinX(item.rect);
+    int startingBucket =  startPoint / kSMdefaultBucketSize;
     
     CGRect nextBucket = [self nextBucketForBucket:startingBucket];
     int i = startingBucket;
@@ -976,7 +977,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
         value = CGRectGetMaxX(rect) + self.padding;
     }
     [posArray replaceObjectAtIndex:row withObject:[NSNumber numberWithFloat:value]];
-    [self calculateBucketForItem:item value:value];
+    [self calculateBucketForItem:item];
 }
 
 - (void)loopItems:(void (^)(SMGridViewItem *item))block {
