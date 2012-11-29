@@ -107,6 +107,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 @interface SMGridView() {
     CGPoint _lastOffset;
     SMGridViewSortAnimSpeed _draggingSpeed;
+    BOOL _loadingViews;
 }
 
 - (BOOL)loaderEnabled;
@@ -323,11 +324,13 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 
 - (void)addViewForItem:(SMGridViewItem *)item {
     UIView *view = [self dataSourceViewForItem:item];
+
     CGRect frame = view.frame;
     CGRect rect = item.rect;
     frame.origin.x = rect.origin.x;
     frame.origin.y = rect.origin.y;
     view.frame = frame;
+    
     [self addSubview:view];
     if (!item.header) {
         [self adjustNewViewPosition:view];
@@ -529,8 +532,11 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (void)loadViewsForPos:(float)pos addedIndexes:(NSMutableArray *)addedIndexes {
+    _loadingViews = YES;
+    
     if ([_dataSource respondsToSelector:@selector(smGridViewSameSize:)] && [_dataSource smGridViewSameSize:self] && !self.pagingEnabled) {
         [self sameSizeLoadViewsForPos:(NSInteger)pos addedIndexes:addedIndexes];
+        _loadingViews = NO;
         return;
     }
     
@@ -579,6 +585,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     }
 
     [self handleLoaderDisplay:[self calculateLoadRect:pos delta:self.deltaLoaderView]];
+    _loadingViews = NO;
 }
 
 - (void)loadViewsForCurrentPosAddedIndexes:(NSMutableArray *)addedIndexes {
@@ -859,7 +866,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     CGSize size = self.frame.size;
     [super setFrame:frame];
     if (!CGSizeEqualToSize(size, self.frame.size)) {
-        if (self.frame.size.height > size.height) {
+        if (self.frame.size.height > size.height && !_loadingViews) {
             [self loadViewsForCurrentPos]; 
         }
         [self updateLoaderFrame];
