@@ -31,7 +31,7 @@
 /**
  You should use dequeReusableView or dequeReusableViewWithClass: inside this method for better performance
  
- @return Size of a view in a given indexPath
+ @return The view for a given indexPath
  @param gridView The calling SMGridView
  @param indexPath The target indexPath
  */
