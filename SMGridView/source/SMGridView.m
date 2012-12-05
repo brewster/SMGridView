@@ -1415,7 +1415,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
             item.view.alpha = 1.0;
         } completion:^(BOOL finished) {
             item.toAdd = NO;
-            if ([_gridDelegate respondsToSelector:@selector(smGrid:didFinishAddingIndexPath:)]) {
+            if ([_gridDelegate respondsToSelector:@selector(smGridView:didFinishAddingIndexPath:)]) {
                 [_gridDelegate smGridView:self didFinishAddingIndexPath:indexPath];
             }
             _addingOrRemoving = NO;
