@@ -525,7 +525,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     } else {
         endBucket = (loadRect.origin.x + loadRect.size.width)/kSMdefaultBucketSize;
     }
-    return endBucket;
+    return MIN(endBucket, _bucketItems.count-1);
 }
 
 - (void)loadViewsForPos:(float)pos addedIndexes:(NSMutableArray *)addedIndexes {
@@ -546,7 +546,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     }
 
 
-
+    NSMutableDictionary *addedItems = [NSMutableDictionary dictionary];
     for (SMGridViewItem *item in bucketItems) {
 #ifdef kSMGridViewDebug
         NSDate *date = [NSDate date];
@@ -568,18 +568,28 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
                     [addedIndexes addObject:indexPath];
                 }
             }
+            [addedItems setObject:[NSNumber numberWithBool:YES] forKey:item];
         }else {
             if (visible && !item.header) {
                 [self queView:item];
             }
         }
         [self updateRectForItem:item];
-
-#ifdef kSMGridViewDebug
-        NSLog(@"loopItem:%f",[date timeIntervalSinceNow]);
-#endif
     }
+    
+    // Remove the no londer present
+    NSMutableArray *toRemove = [NSMutableArray array];
+    for (SMGridViewItem *item in _visibleItems) {
+        if (![addedItems objectForKey:item]) {
+            if (item.visible && !item.header) {
+                [self queView:item];
+            }
+            [toRemove addObject:item];
+        }
+    }
+    [_visibleItems removeObjectsInArray:toRemove];
 
+    NSLog(@"num views:%d", self.subviews.count);
     [self handleLoaderDisplay:[self calculateLoadRect:pos delta:self.deltaLoaderView]];
 }
 
