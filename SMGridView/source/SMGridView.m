@@ -598,7 +598,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     }
     [_visibleItems removeObjectsInArray:toRemove];
 
-    NSLog(@"num views:%d", self.subviews.count);
     [self handleLoaderDisplay:[self calculateLoadRect:pos delta:self.deltaLoaderView]];
     _loadingViews = NO;
 }
