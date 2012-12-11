@@ -551,11 +551,8 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
         [bucketItems addObjectsFromArray:[_bucketItems objectAtIndex:i]];
     }
 
-<<<<<<< HEAD
-
     NSMutableDictionary *addedItems = [NSMutableDictionary dictionary];
-=======
->>>>>>> 1cb9b4b33e07e4e67991b93895fbe26e8669d609
+
     for (SMGridViewItem *item in bucketItems) {
 #ifdef kSMGridViewDebug
         NSDate *date = [NSDate date];
