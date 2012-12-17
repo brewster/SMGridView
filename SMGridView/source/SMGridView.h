@@ -484,5 +484,11 @@
  */
 - (void)touchDown:(UIControl *)controlView withLocationInView:(CGPoint)point;
 
+/**
+ Use this method to get the closest page to a given offset
+ @param offset
+ */
+- (NSInteger)findClosestPage:(CGPoint)offset;
+
 @end
 

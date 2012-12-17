@@ -718,6 +718,10 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     return page;
 }
 
+- (NSInteger)findClosestPage:(CGPoint)offset {
+    return [self findClosestPage:offset targetContentOffset:CGPointZero];
+}
+
 - (BOOL)pageOutOfBounds:(NSInteger)page {
     return page < 0 || page >= [self numberOfPages];
 }
