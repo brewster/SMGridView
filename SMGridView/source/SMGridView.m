@@ -1989,9 +1989,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if ([_gridDelegate respondsToSelector:@selector(scrollViewDidScroll:)] && _gridDelegate != (id)self) {
-        [_gridDelegate scrollViewDidScroll:scrollView];
-    }
     if (!_reloadingData) {
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
@@ -2022,6 +2019,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
                 [_gridDelegate smGridView:self didChangePage:_currentPage];
             }
         }
+    }
+    if ([_gridDelegate respondsToSelector:@selector(scrollViewDidScroll:)] && _gridDelegate != (id)self) {
+        [_gridDelegate scrollViewDidScroll:scrollView];
     }
 }
 
