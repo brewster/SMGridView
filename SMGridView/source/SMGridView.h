@@ -222,8 +222,6 @@
     NSMutableArray *_headerItems;
     NSMutableArray *_visibleItems;
     NSMutableArray *_bucketItems;
-    id<SMGridViewDataSource> _dataSource;
-    id<SMGridViewDelegate> _gridDelegate;
     NSInteger _currentPage;
     int _numberOfPages;
     UIView *_loaderView;
@@ -292,12 +290,12 @@
  Use this property to have a custom loaderView at the end of the grid
  Use in combination with [SMGridViewDataSource smGridViewShowLoader:]
  */
-@property (nonatomic, retain) UIView *loaderView;
+@property (nonatomic, strong) UIView *loaderView;
 
 /**
  This view will be displayed when dataSource has no items
  */
-@property (nonatomic, retain) UIView *emptyView;
+@property (nonatomic, strong) UIView *emptyView;
 
 /**
  If pagingEnabled is `YES`, return the total number of pages in the grid

@@ -61,11 +61,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     return self;
 }
 
-- (void)dealloc {
-    [_indexPath release];
-    [super dealloc];
-}
-
 - (NSString *)description {
     return [NSString stringWithFormat:@"Index:%@ Frame:%@, toAdd:%d, view:%@ header:%d", self.indexPath, NSStringFromCGRect(rect), toAdd, view!=nil?@"Y":@"N", header];
 }
@@ -204,21 +199,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 
 - (void)dealloc {
     [_dragAnimTimer invalidate];
-    [_dragAnimTimer release];
     [_dragStartAnimTimer invalidate];
-    [_dragStartAnimTimer release];
-    [_dragPageAnimTimer invalidate];
-    [_dragPageAnimTimer release];
-    [_items release];
-    [_reusableViews release];
-    [_loaderView release];
-    [_emptyView release];
-    [_draggingView release];
-    [_removingIndexPath release];
-    [_addingIndexPath release];
-    _draggingView = nil;
-    
-    [super dealloc];
 }
 
 
@@ -232,10 +213,10 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     if (_reusableViews.count > 0) {
         for (UIView *view in _reusableViews) {
             if ([view isMemberOfClass:class] || !class) {
-                [[view retain] autorelease];
+                UIView *toReturn = view;
                 [_reusableViews removeObject:view];
-                view.alpha = 1.0;
-                return view;
+                toReturn.alpha = 1.0;
+                return toReturn;
             }
         }
     }
@@ -801,7 +782,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
         return;
     }
     [_loaderView removeFromSuperview];
-    _loaderView = [loaderView retain];
+    _loaderView = loaderView;
     [self updateLoaderFrame];
 }
 
@@ -1102,7 +1083,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     }
     SMGridViewItem *item = [self headerItemInSection:section];
     if (!item) {
-        item = [[[SMGridViewItem alloc] initWithRect:rect] autorelease];
+        item = [[SMGridViewItem alloc] initWithRect:rect];
     } else {
         item.rect = rect;
     }
@@ -1166,7 +1147,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
             item.rect = [self calculateRectForIndexPath:[NSIndexPath indexPathForRow:i inSection:section] row:row addIndexPath:addIndexPath];
             item.toAdd = NO;
         }else {
-            item = [[[SMGridViewItem alloc] init] autorelease];
+            item = [[SMGridViewItem alloc] init];
             item.rect = [self calculateRectForIndexPath:indexPath row:row addIndexPath:addIndexPath];
             item.toAdd = ([indexPath isEqual:addIndexPath]);
         }
@@ -1195,7 +1176,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
         [tmpItems addObject:[self updatedItemsAddIndexPath:addIndexPath section:section]];
     }
     
-    [_items release];
     _items = tmpItems;
     [self updateExtraViews:updateContentSize];
 }
@@ -1295,7 +1275,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     for (int i = items.count -1; i < count; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
         int row = [self findRowToInsertIndexPath:indexPath];
-        SMGridViewItem *item = [[[SMGridViewItem alloc] init] autorelease];
+        SMGridViewItem *item = [[SMGridViewItem alloc] init];
         item.rect = [self calculateRectForIndexPath:indexPath row:row addIndexPath:nil];
         item.indexPath = indexPath;
         [items insertObject:item atIndex:i];
@@ -1316,7 +1296,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     _reloadingData = YES;
     [_bucketItems removeAllObjects];
     [self removeAllViews];
-    [_items release];
     _items = nil;
     [self updateItems];
     if (page >= 0) {
@@ -1414,7 +1393,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (void)finishAddingIndexPath:(NSIndexPath *)indexPath {
-    [indexPath retain];
     self.addingIndexPath = nil;
     [self updateItemsAddIndexPath:indexPath];
     BOOL shouldAnimateOthers = ![self isLastIndexPath:indexPath];
@@ -1434,7 +1412,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
                 [_gridDelegate smGridView:self didFinishAddingIndexPath:indexPath];
             }
             _addingOrRemoving = NO;
-            [indexPath release];
         }];
     }];
 }
@@ -1601,7 +1578,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     }
     
     [_emptyView removeFromSuperview];
-    _emptyView = [emptyView retain];
+    _emptyView = emptyView;
     [self updateEmptyView];
 }
 
@@ -1888,10 +1865,9 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     int newPos = [self findDraggingPosition:_draggingView];
     NSMutableArray *items = [self itemsInSection:_draggingSection];
     if (newPos != _draggingItemsIndex && newPos >= 0 && newPos < items.count) {
-        SMGridViewItem *item = [[items objectAtIndex:_draggingItemsIndex] retain];
+        SMGridViewItem *item = [items objectAtIndex:_draggingItemsIndex];
         [items removeObjectAtIndex:_draggingItemsIndex];
         [items insertObject:item atIndex:newPos];
-        [item release];
         _draggingItemsIndex = newPos;
         [self updateItems];
         [UIView animateWithDuration:0.2 animations:^{

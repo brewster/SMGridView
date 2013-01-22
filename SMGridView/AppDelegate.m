@@ -12,18 +12,11 @@
 
 @implementation AppDelegate
 
-- (void)dealloc
-{
-    [_window release];
-    [_navigationController release];
-    [super dealloc];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    SMGridViewTestViewController *vc = [[[SMGridViewTestViewController alloc] init] autorelease];
+    SMGridViewTestViewController *vc = [[SMGridViewTestViewController alloc] init];
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     

@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		8906CB751624CE6A00F8357B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8906CB731624CE6A00F8357B /* Icon.png */; };
 		8906CB761624CE6A00F8357B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8906CB741624CE6A00F8357B /* Icon@2x.png */; };
-		8906CB791624CEB600F8357B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8906CB781624CEB600F8357B /* Icon.png */; };
-		8906CB7B1624CEBB00F8357B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8906CB7A1624CEBB00F8357B /* Icon@2x.png */; };
 		8916E539161CEABB007FB02C /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 8916E538161CEABB007FB02C /* UIColor+Random.m */; };
 		8985102C161B349600CE0A32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8985102B161B349600CE0A32 /* UIKit.framework */; };
 		8985102E161B349600CE0A32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8985102D161B349600CE0A32 /* Foundation.framework */; };
@@ -21,20 +19,20 @@
 		8985103E161B349600CE0A32 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8985103D161B349600CE0A32 /* Default.png */; };
 		89851040161B349600CE0A32 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8985103F161B349600CE0A32 /* Default@2x.png */; };
 		89851042161B349600CE0A32 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89851041161B349600CE0A32 /* Default-568h@2x.png */; };
-		89851095161B35B600CE0A32 /* IASKAppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851055161B35B600CE0A32 /* IASKAppSettingsViewController.m */; };
-		89851096161B35B600CE0A32 /* IASKAppSettingsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851059161B35B600CE0A32 /* IASKAppSettingsWebViewController.m */; };
-		89851097161B35B600CE0A32 /* IASKSpecifierValuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8985105D161B35B600CE0A32 /* IASKSpecifierValuesViewController.m */; };
-		89851098161B35B600CE0A32 /* IASKSettingsReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851064161B35B600CE0A32 /* IASKSettingsReader.m */; };
-		89851099161B35B600CE0A32 /* IASKSettingsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851068161B35B600CE0A32 /* IASKSettingsStore.m */; };
-		8985109A161B35B600CE0A32 /* IASKSettingsStoreFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8985106C161B35B600CE0A32 /* IASKSettingsStoreFile.m */; };
-		8985109B161B35B600CE0A32 /* IASKSettingsStoreUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851070161B35B600CE0A32 /* IASKSettingsStoreUserDefaults.m */; };
-		8985109C161B35B600CE0A32 /* IASKSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851074161B35B600CE0A32 /* IASKSpecifier.m */; };
-		8985109D161B35B600CE0A32 /* IASKPSSliderSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851079161B35B600CE0A32 /* IASKPSSliderSpecifierViewCell.m */; };
-		8985109E161B35B600CE0A32 /* IASKPSTextFieldSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8985107D161B35B600CE0A32 /* IASKPSTextFieldSpecifierViewCell.m */; };
-		8985109F161B35B600CE0A32 /* IASKPSTitleValueSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851081161B35B600CE0A32 /* IASKPSTitleValueSpecifierViewCell.m */; };
-		898510A0161B35B600CE0A32 /* IASKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851085161B35B600CE0A32 /* IASKSlider.m */; };
-		898510A1161B35B600CE0A32 /* IASKSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851089161B35B600CE0A32 /* IASKSwitch.m */; };
-		898510A2161B35B600CE0A32 /* IASKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8985108D161B35B600CE0A32 /* IASKTextField.m */; };
+		89851095161B35B600CE0A32 /* IASKAppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851055161B35B600CE0A32 /* IASKAppSettingsViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		89851096161B35B600CE0A32 /* IASKAppSettingsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851059161B35B600CE0A32 /* IASKAppSettingsWebViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		89851097161B35B600CE0A32 /* IASKSpecifierValuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8985105D161B35B600CE0A32 /* IASKSpecifierValuesViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		89851098161B35B600CE0A32 /* IASKSettingsReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851064161B35B600CE0A32 /* IASKSettingsReader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		89851099161B35B600CE0A32 /* IASKSettingsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851068161B35B600CE0A32 /* IASKSettingsStore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8985109A161B35B600CE0A32 /* IASKSettingsStoreFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8985106C161B35B600CE0A32 /* IASKSettingsStoreFile.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8985109B161B35B600CE0A32 /* IASKSettingsStoreUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851070161B35B600CE0A32 /* IASKSettingsStoreUserDefaults.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8985109C161B35B600CE0A32 /* IASKSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851074161B35B600CE0A32 /* IASKSpecifier.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8985109D161B35B600CE0A32 /* IASKPSSliderSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851079161B35B600CE0A32 /* IASKPSSliderSpecifierViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8985109E161B35B600CE0A32 /* IASKPSTextFieldSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8985107D161B35B600CE0A32 /* IASKPSTextFieldSpecifierViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8985109F161B35B600CE0A32 /* IASKPSTitleValueSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851081161B35B600CE0A32 /* IASKPSTitleValueSpecifierViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		898510A0161B35B600CE0A32 /* IASKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851085161B35B600CE0A32 /* IASKSlider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		898510A1161B35B600CE0A32 /* IASKSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851089161B35B600CE0A32 /* IASKSwitch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		898510A2161B35B600CE0A32 /* IASKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8985108D161B35B600CE0A32 /* IASKTextField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		898510A3161B35B600CE0A32 /* SMGridViewTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851091161B35B600CE0A32 /* SMGridViewTestViewController.m */; };
 		898510A4161B35B600CE0A32 /* SMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89851094161B35B600CE0A32 /* SMGridView.m */; };
 		898510A6161B364E00CE0A32 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898510A5161B364E00CE0A32 /* MessageUI.framework */; };
@@ -555,8 +553,6 @@
 				898510B8161B399F00CE0A32 /* Settings.bundle in Resources */,
 				8906CB751624CE6A00F8357B /* Icon.png in Resources */,
 				8906CB761624CE6A00F8357B /* Icon@2x.png in Resources */,
-				8906CB791624CEB600F8357B /* Icon.png in Resources */,
-				8906CB7B1624CEBB00F8357B /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +605,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -637,6 +634,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

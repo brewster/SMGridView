@@ -43,13 +43,6 @@
     }
     return self;
 }
-							
-- (void)dealloc {
-    [_appSettingsViewController release];
-    [_gridView release];
-    [_sections release];
-    [super dealloc];
-}
 
 - (void)loadView {
     [super loadView];
@@ -76,7 +69,7 @@
 }
 
 - (UIView *)createEmptyView {
-    UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 300)] autorelease];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:36];
     label.text = @"I'm empty :(";
@@ -116,7 +109,7 @@
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loader_enabled"]) {
         // Create the activity indicator as a loder view
-        UIActivityIndicatorView *av = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+        UIActivityIndicatorView *av = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         av.color = [UIColor darkGrayColor];
         [av startAnimating];
         _gridView.loaderView = av;
@@ -221,6 +214,8 @@
         view.userInteractionEnabled = YES;
         view.titleLabel.adjustsFontSizeToFitWidth = YES;
         //        [view addTarget:self action:@selector(itemPressed:) forControlEvents:UIControlEventTouchUpInside];
+    } else {
+        NSLog(@"");
     }
     NSDictionary *item = [self itemAtIndexPath:indexPath];
     view.backgroundColor = [item objectForKey:@"color"];
@@ -246,13 +241,13 @@
     if (!colors) {
         colors = [[NSArray alloc] initWithObjects:[UIColor grayColor], [UIColor blackColor], nil];
     }
-    UIView *header = [[[UIView alloc] init] autorelease];
+    UIView *header = [[UIView alloc] init];
     
     CGSize headerSize = [self smGridView:gridView sizeForHeaderInSection:section];
     header.frame = CGRectMake(0, 0, headerSize.width, headerSize.height);
     header.backgroundColor = [colors objectAtIndex:section%colors.count];
     
-    UILabel *label = [[[UILabel alloc] init] autorelease];
+    UILabel *label = [[UILabel alloc] init];
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.frame = CGRectMake(0, (headerSize.height - kHeaderSize)/2, header.frame.size.width, kHeaderSize);
@@ -280,10 +275,9 @@
 
 - (void)smGridView:(SMGridView *)gridView shouldMoveItemFrom:(NSIndexPath *)from to:(NSIndexPath *)to {
     NSMutableArray *tmpItems = [_sections objectAtIndex:from.section];
-    id obj = [[tmpItems objectAtIndex:from.row] retain];
+    id obj = [tmpItems objectAtIndex:from.row];
     [tmpItems removeObjectAtIndex:from.row];
     [tmpItems insertObject:obj atIndex:to.row];
-    [obj release];
 }
 
 - (void)smGridView:(SMGridView *)gridView startDraggingView:(UIView *)view atIndex:(int)to {
@@ -320,23 +314,23 @@
 #pragma mark - Settings
 
 - (void)setupButtons {
-    UIBarButtonItem *settingsButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(settingsAction:)] autorelease];
+    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(settingsAction:)];
     self.navigationItem.rightBarButtonItem = settingsButton;
     
-    _sortSwitch = [[[UISwitch alloc] init] autorelease];
+    _sortSwitch = [[UISwitch alloc] init];
     [_sortSwitch addTarget:self action:@selector(sortChanged:) forControlEvents:UIControlEventValueChanged];
-    UIBarButtonItem *sortButton = [[[UIBarButtonItem alloc] initWithCustomView:_sortSwitch] autorelease];
-    UILabel *sortLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)] autorelease];
+    UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithCustomView:_sortSwitch];
+    UILabel *sortLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
     sortLabel.textAlignment = NSTextAlignmentCenter;
     sortLabel.backgroundColor = [UIColor clearColor];
     sortLabel.textColor = [UIColor whiteColor];
     sortLabel.font = [UIFont boldSystemFontOfSize:18];
     sortLabel.text = @"sort";
-    UIBarButtonItem *sortLabelButton = [[[UIBarButtonItem alloc] initWithCustomView:sortLabel] autorelease];
+    UIBarButtonItem *sortLabelButton = [[UIBarButtonItem alloc] initWithCustomView:sortLabel];
     
     // Add/Remove
-    UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)] autorelease];
-    UIBarButtonItem *removeButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeAction:)] autorelease];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
+    UIBarButtonItem *removeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeAction:)];
     
     self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:sortLabelButton, sortButton, addButton, removeButton, nil];
 }
