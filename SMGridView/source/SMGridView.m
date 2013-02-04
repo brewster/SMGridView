@@ -646,7 +646,12 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (NSInteger)pagingRowForIndexPath:(NSIndexPath *)indexPath {
-    return (indexPath.row/[self itemsPerRowInSection:indexPath.section]) % [self numberOfRowsInSection:indexPath.section];
+    int numItems = [self itemsPerRowInSection:indexPath.section];
+    if (numItems == 0) {
+        return 0;
+    } else {
+        return (indexPath.row/numItems) % [self numberOfRowsInSection:indexPath.section];
+    }
 }
 
 - (int)calculateNumberOfPagesInSection:(NSInteger)section {
@@ -677,15 +682,23 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (BOOL)isFirstOfPage:(NSIndexPath *)indexPath {
+    int numItems = [self itemsPerRowInSection:indexPath.section];
+    if (numItems == 0) {
+        return YES;
+    }
     if (self.pagingInverseOrder) {
-        return (indexPath.row % [self itemsPerRowInSection:indexPath.section]) == 0;
+        return (indexPath.row % numItems) == 0;
     }else {
-        return (indexPath.row % [self calculateItemsPerPageInSection:indexPath.section]) < [self numberOfRowsInSection:indexPath.section];
+        return (indexPath.row % numItems) < [self numberOfRowsInSection:indexPath.section];
     }
 }
 
 - (NSInteger)pageForIndexPath:(NSIndexPath *)indexPath {
-    return floor(indexPath.row/[self calculateItemsPerPageInSection:indexPath.section]);
+    int numItems = [self itemsPerRowInSection:indexPath.section];
+    if (numItems == 0) {
+        return 0;
+    }
+    return floor(indexPath.row/numItems);
 }
 
 - (CGPoint)contentOffsetForPage:(NSInteger)page {
