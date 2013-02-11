@@ -375,9 +375,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (void)updateRectForItem:(SMGridViewItem *)item {
-    if (item.header) {
-        NSLog(@"");
-    }
     if ([self isCurrentHeaderItemSticky:item]) {
         SMGridViewItem *headerNextItem = [self headerItemInSection:_currentSection+1];
         if ([self headerStickyNeedsAdjustment:item]) {            
@@ -397,7 +394,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
             return;
         }
     }
-    if (item.view && item.view != _draggingView) {
+    if (item.view && item.view != _draggingView && !CGRectEqualToRect(item.view.frame, item.rect)) {
         CGRect rect = item.view.frame;
         rect.origin = item.rect.origin;
         item.view.frame = rect;
@@ -2081,6 +2078,13 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     if ([_gridDelegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)]) {
         [_gridDelegate scrollViewDidEndScrollingAnimation:self];
     }
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    if ([_gridDelegate respondsToSelector:@selector(viewForZoomingInScrollView:)] && _gridDelegate != (id)self) {
+        return [_gridDelegate viewForZoomingInScrollView:self];
+    }
+    return nil;
 }
 
 @end
