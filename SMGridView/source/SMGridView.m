@@ -1420,7 +1420,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 }
 
 - (BOOL)isLastIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section == _items.count && indexPath.row == [[_items objectAtIndex:indexPath.section] count] -1;
+    return indexPath.section == _items.count && indexPath.row == [(NSArray *)[_items objectAtIndex:indexPath.section] count] -1;
 }
 
 - (void)finishAddingIndexPath:(NSIndexPath *)indexPath {
