@@ -1274,7 +1274,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     [self removeAllViewsInSection:section];
     [self resetItemsInSection:section];
     // Update all following sectsions
-    for (int i = section; i < [self numberOfSections]; i++) {
+    for (int i = section; i < MIN(_items.count, [self numberOfSections]); i++) {
         [_items replaceObjectAtIndex:i withObject:[self updatedItemsAddIndexPath:nil section:i]];
     }
     _reloadingData = NO;
