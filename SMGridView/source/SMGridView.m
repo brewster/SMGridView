@@ -444,6 +444,14 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
     _currentSection = headerSection;
 }
 
+- (SMGridViewItem *)firstItemInSection:(NSInteger)section {
+    NSArray *sectionItems = [self itemsInSection:section];
+    if (sectionItems.count > 0) {
+        return [sectionItems objectAtIndex:0];
+    }
+    return nil;
+}
+
 - (void)sameSizeLoadViewsForPos:(float)pos addedIndexes:(NSMutableArray *)addedIndexes {
     pos = MAX(pos, 0);
     [self updateCurrentSection];
@@ -456,7 +464,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
         }
     }
     // Get first item
-    SMGridViewItem *firstItem = [[self itemsInSection:section] objectAtIndex:0];
+    SMGridViewItem *firstItem = [self firstItemInSection:section];
     float posInSection = MAX(0, pos - [self findMinValueInSection:section]);
     float varDim = self.vertical?firstItem.rect.size.height:firstItem.rect.size.width;
     int row = posInSection/(varDim+self.padding);
