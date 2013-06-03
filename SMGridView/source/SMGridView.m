@@ -81,7 +81,7 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 - (BOOL)isEqual:(id)object {
     if ([object isKindOfClass:[SMGridViewItem class]]) {
         SMGridViewItem *other = (SMGridViewItem *)object;
-        return [self.indexPath isEqual:other.indexPath] && self.header == other.header;
+        return [self.indexPath isEqual:other.indexPath] && self.header == other.header && self.toAdd == other.toAdd;
     }
     return NO;
 }
@@ -363,9 +363,6 @@ typedef NSUInteger SMGridViewSortAnimSpeed;
 
 - (BOOL)isCurrentHeaderItemSticky:(SMGridViewItem *)item {
     BOOL ret = self.stickyHeaders && item.header && !CGRectIsEmpty(item.rect) && item.indexPath.section == _currentSection && !CGSizeEqualToSize(CGSizeZero, item.rect.size);
-    if (ret) {
-        NSLog(@"");
-    }
     return ret;
 }
 
